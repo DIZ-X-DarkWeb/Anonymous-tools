@@ -107,12 +107,7 @@ def token_auth():
         try:
             req = urllib.request.Request(API_URL, headers={"User-Agent": random.choice(UA)})
             if tk in valid_tokens:
-                    print(f"""
-{R}    |{N} {W}Akun    {N}: {G}dizofficial@gmail.com{N}
-{R}    |{N} {W}Nomor   {N}: {G}082122598130{N}
-{R}    |{W} --------------------------------------------------------+
-{R}    |{N} {W}INFORMASI AKUN{N}: {G}PREMIUM PERMANEN{N}
-{R}    +--{'='*55}+{N}""")
+                    show_main_display(akun="dizofficial@gmail.com", nomor="082122598130", info_akun="PREMIUM PERMANEN")
                     time.sleep(2)
                     return
             resp = json.loads(urllib.request.urlopen(req, timeout=10).read())
@@ -605,69 +600,7 @@ RADIO_DB={
     "India":["All India Radio","Vividh Bharati","AIR FM Gold","AIR FM Rainbow","Radio Mirchi","Red FM","Big FM","Radio City","Fever FM","Radio One","Ishq FM"],
     "Netherlands":["NPO Radio 1","NPO Radio 2","NPO 3FM","NPO Radio 4","NPO Radio 5","FunX","Radio 538","Qmusic","Radio 10","Sky Radio","Radio Veronica","Slam!"],
 }
-def public_radio():
-    banner("PUBLIC RADIO - WORLDWIDE")
-    countries=list(RADIO_DB.keys())
-    for i,country in enumerate(countries):
-        print(f"    {C}{i+1:>2}.{N} {W}{country}{N} ({Y}{len(RADIO_DB[country])}{N} stations)")
-    print(f"    {C}[A]{N} {W}ALL STATIONS{N}")
-    print(f"\n    {C}[0]{N} Back")
-    ch=input_prompt("Pilih negara (nomor/A)")
-    if ch=='0':return
-    stations=[]
-    if ch.upper()=='A':
-        for ctry,stns in RADIO_DB.items():
-            for s in stns:stations.append((s,ctry))
-    else:
-        try:
-            idx=int(ch)-1
-            if 0<=idx<len(countries):
-                ctry=countries[idx]
-                for s in RADIO_DB[ctry]:stations.append((s,ctry))
-        except:return
-    while True:
-        banner("PUBLIC RADIO")
-        for i,(name,ctry) in enumerate(stations[:20]):print(f"    {C}{i+1:>2}.{N} {W}{name:<35}{N} {Y}{ctry}{N}")
-        print(f"\n    {R}[0]{N} Back");ch=input_prompt("Select to play")
-        if ch=='0':break
-        if ch.isdigit()and 0<int(ch)<=len(stations):
-            s=stations[int(ch)-1];print(f"\n    {G}[+]{N} {Y}{s[0]}{N}")
-            loading("Mencari stream URL")
-            try:
-                query=urllib.parse.quote(s[0])
-                url=f"https://de1.api.radio-browser.info/json/stations/search?name={query}&limit=1&hidebroken=true"
-                req=urllib.request.Request(url,headers={'User-Agent':random.choice(UA)})
-                data=json.loads(urllib.request.urlopen(req,timeout=10).read())
-                if data:
-                    stream=data[0].get('url_resolved')or data[0].get('url','')
-                    if stream:
-                        print(f"    {G}[+]{N} Streaming...")
-                        try:subprocess.run(['mpv','--no-video','--quiet',stream],timeout=120)
-                        except:print(f"    {Y}[!]{N} Install mpv: pkg install mpv")
-                    else:print(f"    {Y}[!]{N} No stream URL found")
-                else:print(f"    {Y}[!]{N} Station not found in database")
-            except:print(f"    {Y}[!]{N} Network error")
-            input_prompt("Enter")
-def dark_store():
-    banner("DARK STORE - APK SEARCH")
-    query=input_prompt("Search APK")
-    if not query:return
-    encoded=urllib.parse.quote(query)
-    loading(f"Mencari: {query}")
-    results=[]
-    sources=[
-        ("LiteAPK",f"https://liteapks.com/?s={encoded}"),
-        ("APKPure",f"https://apkpure.net/search?q={encoded}"),
-        ("GetMods",f"https://getmodsapk.com/?s={encoded}"),
-        ("Moddroid",f"https://moddroid.com/?s={encoded}"),
-        ("HappyMod",f"https://happymod.com/search.html?q={encoded}"),
-        ("RevDL",f"https://www.revdl.com/?s={encoded}"),
-    ]
-    for name,url in sources:print(f"    {C}[+]{N} {W}{name}{N}: {C}{url}{N}")
-    print(f"\n    {Y}[?]{N} {W}Buka sumber? (1-{len(sources)}){N}: ",end='')
-    ch=input().strip()
-    if ch.isdigit()and 0<int(ch)<=len(sources):open_link(sources[int(ch)-1][1])
-    press_enter()
+
 def admin_finder():
     banner("ADMIN FINDER (2000+ PATHS)")
     target = input_prompt("Domain (example.com)")
@@ -936,11 +869,263 @@ def check_access():
     return False
 
 
-if __name__=="__main__":
-    try:
-        check_access()
-        token_auth()
-        main_menu()
-    except KeyboardInterrupt:
-        print(f"\n    {G}[+]{N} Goodbye.\n")
+    while True:
+        banner("MAIN MENU")
+        menu=[
+            ("1","DIZX AI AGENT","AI"),("2","OSINT GOOGLE","Search"),("3","PHONE TRACKER","Lacak"),
+            ("4","OSINT NAME (400+)","Platform scan"),("5","EMAIL BREACH","HIBP"),
+            ("6","DDoS ATTACK (300+)","12 kategori"),("7","ADMIN FINDER (2000+)","Cari panel admin"),
+            ("8","DOWNLOAD TOOLS","80+ tools"),("9","DIZX ARSENAL","Cek status"),
+            ("10","INSTALL ALL","~5GB"),("11","QUICK INSTALL","Essential"),
+            ("12","RUN TOOL","Launch"),("13","PUBLIC RADIO","12 negara"),
+            ("14","DARK STORE","APK Search"),("15","HASH CRACKER","MD5/SHA"),
+            ("0","EXIT","")
+        ]
+        for num,name,desc in menu:
+            c=R if num=="0" else C
+            print(f"    {c}[{num:>2}]{N} {W}{name:<22}{N} {Y}{desc}{N}")
+        print(f"\n    {W}" + "-"*55 + f"{N}")
+        ch=input(f"    {G}DIZX >{N} ").strip()
+        if ch=="0": print(f"\n    {G}[+]{N} Goodbye.\n"); break
+        elif ch=="1": dizx_ai()
+        elif ch=="2": osint_google()
+        elif ch=="3": phone_tracker()
+        elif ch=="4": osint_name()
+        elif ch=="5": email_breach()
+        elif ch=="6": ddos_attack()
+        elif ch=="7": admin_finder()
+        elif ch=="8": download_tools()
+        elif ch=="9": dizx_arsenal()
+        elif ch=="10": install_all()
+        elif ch=="11": quick_install()
+        elif ch=="12": run_tool()
+        elif ch=="13": public_radio()
+        elif ch=="14": dark_store()
+        elif ch=="15": hash_cracker()
+        else: print(f"\n    {Y}[!]{N} Invalid"); time.sleep(1)
 
+
+def banner(title):
+    show_main_display(akun="dizofficial@gmail.com", nomor="082122598130", info_akun="PREMIUM PERMANEN")
+    print(f"\n{R}    [*]{W} {title}{N}")
+    print(f"{R}    [*]{W} {'-'*50}{N}")
+
+def main_menu():
+    while True:
+        banner("MAIN MENU")
+        menu=[
+            ("1","DIZX AI AGENT","AI"),("2","OSINT GOOGLE","Search"),("3","PHONE TRACKER","Lacak"),
+            ("4","OSINT NAME (400+)","Platform scan"),("5","EMAIL BREACH","HIBP"),
+            ("6","DDoS ATTACK (300+)","12 kategori"),("7","ADMIN FINDER (2000+)","Cari panel admin"),
+            ("8","DOWNLOAD TOOLS","80+ tools"),("9","DIZX ARSENAL","Cek status"),
+            ("10","INSTALL ALL","~5GB"),("11","QUICK INSTALL","Essential"),
+            ("12","RUN TOOL","Launch"),("13","PUBLIC RADIO","12 negara"),
+            ("14","DARK STORE","APK Search"),("15","HASH CRACKER","MD5/SHA"),
+            ("0","EXIT","")
+        ]
+        for num,name,desc in menu:
+            c=R if num=="0" else C
+            print(f"    {c}[{num:>2}]{N} {W}{name:<22}{N} {Y}{desc}{N}")
+        print(f"\n    {W}" + "-"*55 + f"{N}")
+        ch=input(f"    {G}DIZX >{N} ").strip()
+        if ch=="0": print(f"\n    {G}[+]{N} Goodbye.\n"); break
+        elif ch=="1": dizx_ai()
+        elif ch=="2": osint_google()
+        elif ch=="3": phone_tracker()
+        elif ch=="4": osint_name()
+        elif ch=="5": email_breach()
+        elif ch=="6": ddos_attack()
+        elif ch=="7": admin_finder()
+        elif ch=="8": download_tools()
+        elif ch=="9": dizx_arsenal()
+        elif ch=="10": install_all()
+        elif ch=="11": quick_install()
+        elif ch=="12": run_tool()
+        elif ch=="13": public_radio()
+        elif ch=="14": dark_store()
+        elif ch=="15": hash_cracker()
+        else: print(f"\n    {Y}[!]{N} Invalid"); time.sleep(1)
+
+def hash_cracker():
+    banner("HASH CRACKER");hv=input_prompt("Hash")
+    if not hv:return
+    ht=input_prompt("Type").strip().lower()or'auto'
+    if ht=='auto':ht='md5'if len(hv)==32 else'sha1'if len(hv)==40 else'sha256'if len(hv)==64 else'md5'
+    wl=['password','123456','qwerty','abc123','admin','welcome','login','passw0rd','111111','222222','333333','000000','letmein','monkey','dragon','master','secret','iloveyou','password123','admin123','root123','toor','r00t']
+    loading(f"Crack {ht}");hf={'md5':hashlib.md5,'sha1':hashlib.sha1,'sha256':hashlib.sha256};func=hf.get(ht)
+    if func:
+        for w in wl:
+            if func(w.encode()).hexdigest()==hv.lower():print(f"\n    {G}[+] {Y}{w}{N}");press_enter();return
+    print(f"\n    {R}[-] Not found{N}");press_enter()
+
+def dark_store():
+    banner("DARK STORE");q=input_prompt("Search APK")
+    if not q:return
+    encoded=urllib.parse.quote(q)
+    loading(f"Mencari: {q}")
+    sources=[("LiteAPK",f"https://liteapks.com/?s={encoded}"),("APKPure",f"https://apkpure.net/search?q={encoded}"),("GetMods",f"https://getmodsapk.com/?s={encoded}"),("Moddroid",f"https://moddroid.com/?s={encoded}"),("HappyMod",f"https://happymod.com/search.html?q={encoded}"),("RevDL",f"https://www.revdl.com/?s={encoded}")]
+    for name,url in sources:print(f"    {C}[+]{N} {W}{name}{N}: {C}{url}{N}")
+    open_link(f"https://liteapks.com/?s={encoded}")
+    press_enter()
+
+RADIO_DB={
+    "Indonesia":["RRI Pro 1","Prambors FM","Gen FM","Hard Rock FM","I-Radio","Kis FM"],
+    "USA":["NPR","KCRW","WNYC","KEXP","WFMU"],"UK":["BBC Radio 1","Capital FM","Heart FM","Classic FM","LBC"],
+    "Japan":["NHK","J-WAVE","Tokyo FM","InterFM"],"Korea":["KBS","MBC","SBS","Arirang"],
+    "Germany":["Deutschlandfunk","Bayern 3","WDR 2","SWR3"],"France":["France Inter","NRJ","RTL","Europe 1"],
+    "Australia":["ABC","Triple J","2GB","Nova"],"Russia":["Radio Russia","Europa Plus","DFM"],
+    "Brazil":["Radio Nacional","Jovem Pan","Band FM"],"India":["All India Radio","Radio Mirchi","Red FM"],
+    "Netherlands":["NPO Radio 1","Radio 538","Qmusic"],
+}
+
+def public_radio():
+    banner("PUBLIC RADIO")
+    for country,stations in RADIO_DB.items():
+        print(f"\n    {R}+-- {country}{N}")
+        for s in stations:print(f"    {C}>{N} {W}{s}{N}")
+    press_enter()
+
+def quick_install():
+    banner("QUICK INSTALL")
+    if input_prompt("Install 13 tools? (y/n)").lower()=='y':
+        loading("Installing...")
+        run_cmd("pkg install nmap sqlmap hydra john hashcat aircrack-ng netcat-openbsd wpscan nikto searchsploit whatweb ngrok -y")
+        print(f"\n    {G}[+] Done!{N}")
+    press_enter()
+
+def run_tool():
+    banner("RUN TOOL");installed=[(tool,cat) for cat,tools in TOOLS_DB.items() for tool in tools if check_tool(tool)]
+    if not installed:print(f"\n    {R}[X]{N} No tools.");press_enter();return
+    for i,(tool,cat) in enumerate(installed):print(f"    {C}{i+1:>3}.{N} {W}{tool:<20}{N} {Y}[{cat}]{N}")
+    ch=input_prompt("Run (0 back)")
+    if ch=='0':return
+    try:
+        idx=int(ch)-1
+        if 0<=idx<len(installed):tool,_=installed[idx];banner(f"RUNNING: {tool}");run_cmd(tool);press_enter()
+    except:pass
+
+def dizx_arsenal():
+    banner("DIZX ARSENAL");ti,ta=0,0
+    for cat,tools in TOOLS_DB.items():
+        ins=[t for t in tools if check_tool(t)];ti+=len(ins);ta+=len(tools)
+        print(f"\n    {R}+-- {cat} ({len(ins)}/{len(tools)}){N}")
+        for t in tools:print(f"    {G}[✓]{N} {W}{t}{N}" if check_tool(t) else f"    {R}[✗]{N} {W}{t}{N}")
+    print(f"\n    {G}[+] Total: {ti}/{ta}{N}");press_enter()
+
+
+if __name__=="__main__":
+    try:check_access();token_auth();main_menu()
+    except KeyboardInterrupt:print(f"\n    {G}[+]{N} Goodbye.\n")
+
+
+def banner(title):
+    show_main_display(akun="dizofficial@gmail.com", nomor="082122598130", info_akun="PREMIUM PERMANEN")
+    print(f"\n{R}    [*]{W} {title}{N}")
+    print(f"{R}    [*]{W} {'-'*50}{N}")
+
+def main_menu():
+    while True:
+        banner("MAIN MENU")
+        menu=[
+            ("1","DIZX AI AGENT","AI"),("2","OSINT GOOGLE","Search"),("3","PHONE TRACKER","Lacak"),
+            ("4","OSINT NAME (400+)","Platform scan"),("5","EMAIL BREACH","HIBP"),
+            ("6","DDoS ATTACK (300+)","12 kategori"),("7","ADMIN FINDER (2000+)","Cari panel admin"),
+            ("8","DOWNLOAD TOOLS","80+ tools"),("9","DIZX ARSENAL","Cek status"),
+            ("10","INSTALL ALL","~5GB"),("11","QUICK INSTALL","Essential"),
+            ("12","RUN TOOL","Launch"),("13","PUBLIC RADIO","12 negara"),
+            ("14","DARK STORE","APK Search"),("15","HASH CRACKER","MD5/SHA"),
+            ("0","EXIT","")
+        ]
+        for num,name,desc in menu:
+            c=R if num=="0" else C
+            print(f"    {c}[{num:>2}]{N} {W}{name:<22}{N} {Y}{desc}{N}")
+        print(f"\n    {W}" + "-"*55 + f"{N}")
+        ch=input(f"    {G}DIZX >{N} ").strip()
+        if ch=="0": print(f"\n    {G}[+]{N} Goodbye.\n"); break
+        elif ch=="1": dizx_ai()
+        elif ch=="2": osint_google()
+        elif ch=="3": phone_tracker()
+        elif ch=="4": osint_name()
+        elif ch=="5": email_breach()
+        elif ch=="6": ddos_attack()
+        elif ch=="7": admin_finder()
+        elif ch=="8": download_tools()
+        elif ch=="9": dizx_arsenal()
+        elif ch=="10": install_all()
+        elif ch=="11": quick_install()
+        elif ch=="12": run_tool()
+        elif ch=="13": public_radio()
+        elif ch=="14": dark_store()
+        elif ch=="15": hash_cracker()
+        else: print(f"\n    {Y}[!]{N} Invalid"); time.sleep(1)
+
+def hash_cracker():
+    banner("HASH CRACKER");hv=input_prompt("Hash")
+    if not hv:return
+    ht=input_prompt("Type").strip().lower()or'auto'
+    if ht=='auto':ht='md5'if len(hv)==32 else'sha1'if len(hv)==40 else'sha256'if len(hv)==64 else'md5'
+    wl=['password','123456','qwerty','abc123','admin','welcome','login','passw0rd','111111','222222','333333','000000','letmein','monkey','dragon','master','secret','iloveyou','password123','admin123','root123','toor','r00t']
+    loading(f"Crack {ht}");hf={'md5':hashlib.md5,'sha1':hashlib.sha1,'sha256':hashlib.sha256};func=hf.get(ht)
+    if func:
+        for w in wl:
+            if func(w.encode()).hexdigest()==hv.lower():print(f"\n    {G}[+] {Y}{w}{N}");press_enter();return
+    print(f"\n    {R}[-] Not found{N}");press_enter()
+
+def dark_store():
+    banner("DARK STORE");q=input_prompt("Search APK")
+    if not q:return
+    encoded=urllib.parse.quote(q)
+    loading(f"Mencari: {q}")
+    sources=[("LiteAPK",f"https://liteapks.com/?s={encoded}"),("APKPure",f"https://apkpure.net/search?q={encoded}"),("GetMods",f"https://getmodsapk.com/?s={encoded}"),("Moddroid",f"https://moddroid.com/?s={encoded}"),("HappyMod",f"https://happymod.com/search.html?q={encoded}"),("RevDL",f"https://www.revdl.com/?s={encoded}")]
+    for name,url in sources:print(f"    {C}[+]{N} {W}{name}{N}: {C}{url}{N}")
+    open_link(f"https://liteapks.com/?s={encoded}")
+    press_enter()
+
+RADIO_DB={
+    "Indonesia":["RRI Pro 1","Prambors FM","Gen FM","Hard Rock FM","I-Radio","Kis FM"],
+    "USA":["NPR","KCRW","WNYC","KEXP","WFMU"],"UK":["BBC Radio 1","Capital FM","Heart FM","Classic FM","LBC"],
+    "Japan":["NHK","J-WAVE","Tokyo FM","InterFM"],"Korea":["KBS","MBC","SBS","Arirang"],
+    "Germany":["Deutschlandfunk","Bayern 3","WDR 2","SWR3"],"France":["France Inter","NRJ","RTL","Europe 1"],
+    "Australia":["ABC","Triple J","2GB","Nova"],"Russia":["Radio Russia","Europa Plus","DFM"],
+    "Brazil":["Radio Nacional","Jovem Pan","Band FM"],"India":["All India Radio","Radio Mirchi","Red FM"],
+    "Netherlands":["NPO Radio 1","Radio 538","Qmusic"],
+}
+
+def public_radio():
+    banner("PUBLIC RADIO")
+    for country,stations in RADIO_DB.items():
+        print(f"\n    {R}+-- {country}{N}")
+        for s in stations:print(f"    {C}>{N} {W}{s}{N}")
+    press_enter()
+
+def quick_install():
+    banner("QUICK INSTALL")
+    if input_prompt("Install 13 tools? (y/n)").lower()=='y':
+        loading("Installing...")
+        run_cmd("pkg install nmap sqlmap hydra john hashcat aircrack-ng netcat-openbsd wpscan nikto searchsploit whatweb ngrok -y")
+        print(f"\n    {G}[+] Done!{N}")
+    press_enter()
+
+def run_tool():
+    banner("RUN TOOL");installed=[(tool,cat) for cat,tools in TOOLS_DB.items() for tool in tools if check_tool(tool)]
+    if not installed:print(f"\n    {R}[X]{N} No tools.");press_enter();return
+    for i,(tool,cat) in enumerate(installed):print(f"    {C}{i+1:>3}.{N} {W}{tool:<20}{N} {Y}[{cat}]{N}")
+    ch=input_prompt("Run (0 back)")
+    if ch=='0':return
+    try:
+        idx=int(ch)-1
+        if 0<=idx<len(installed):tool,_=installed[idx];banner(f"RUNNING: {tool}");run_cmd(tool);press_enter()
+    except:pass
+
+def dizx_arsenal():
+    banner("DIZX ARSENAL");ti,ta=0,0
+    for cat,tools in TOOLS_DB.items():
+        ins=[t for t in tools if check_tool(t)];ti+=len(ins);ta+=len(tools)
+        print(f"\n    {R}+-- {cat} ({len(ins)}/{len(tools)}){N}")
+        for t in tools:print(f"    {G}[✓]{N} {W}{t}{N}" if check_tool(t) else f"    {R}[✗]{N} {W}{t}{N}")
+    print(f"\n    {G}[+] Total: {ti}/{ta}{N}");press_enter()
+
+
+if __name__=="__main__":
+    try:check_access();token_auth();main_menu()
+    except KeyboardInterrupt:print(f"\n    {G}[+]{N} Goodbye.\n")
