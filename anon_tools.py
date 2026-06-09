@@ -85,59 +85,44 @@ def show_main_display(akun="MASUKAN TOKEN ANDA", nomor="MASUKAN TOKEN ANDA", inf
 
 user_data={}
 def token_auth():
-    global user_data
-    TFILE="/data/data/com.termux/files/home/bot_users.json"
+    BOT_TOKEN = "8930302920:AAF9ZqZ-12mMYkw1OsPWyg681uDVmxk7MnE"
+    API_URL = f"https://api.telegram.org/bot{BOT_TOKEN}"
     while True:
         show_main_display()
         print(f"""
 {R}    +------------------------------------------+
-{R}    |{W}  TELEGRAM TOKEN AUTHENTICATION          {R}|
-{R}    |{W}       @ANONYMOUS_OPS_BOT                {R}|
-{R}    |{W}     or chat me {Y}082122598130{R}             {R}|
+{R}    |{W}  TELEGRAM TOKEN AUTHENTICATION        {R}|
+{R}    |{W}       @ANONYMOUS_OPS_BOT              {R}|
+{R}    |{W}     or chat me {Y}082122598130{R}            {R}|
 {R}    +------------------------------------------+{N}
 """)
-        tk=input(f"    {R}[?]{N} {W}Token{N}: ").strip()
-        if not tk:print(f"\n    {Y}[!]{N} Token kosong");time.sleep(1);continue
+        tk = input(f"    {R}[?]{N} {W}Token{N}: ").strip()
+        if not tk: print(f"\n    {Y}[!]{N} Token kosong"); time.sleep(1); continue
         loading("Verifying")
         try:
-            users=json.load(open(TFILE))
-            for uid,data in users.items():
-                if data.get('token','')==tk:
-                    if data.get('banned'):print(f"\n{R}    +-- BANNED --+{N}");time.sleep(2);continue
-                    if data.get('expired'):
-                        print(f"\n{R}    +-- TOKEN EXPIRED --+{N}")
-                        print(f"    {Y}[!]{N} Hubungi 082122598130 untuk perpanjang")
-                        ch=input(f"    {R}[?]{N} Beli token? (y/n): ").strip().lower()
-                        if ch=='y':open_link("https://wa.me/6282122598130")
-                        time.sleep(2);continue
-                    global user_data;user_data={'email':data.get('email','?'),'phone':data.get('phone','?')};email=user_data['email'];phone=user_data['phone']
-                    show_main_display(akun=email, nomor=phone, info_akun="ACTIVE")
-                    time.sleep(2);return
-            print(f"\n    {R}[X] Invalid!{N}");time.sleep(2)
-        except:print(f"\n    {R}[X] Error{N}");time.sleep(2)
-
-def banner(title):
-    global user_data
-    if user_data:
-        show_main_display(akun=user_data.get('email','?'), nomor=user_data.get('phone','?'), info_akun='ACTIVE')
-    else:
-        show_main_display()
-    print(f"\n{R}    [*]{W} {title}{N}")
-    print(f"{R}    [*]{W} {'-'*50}{N}")
-
-TOOLS_DB={
-    "Network Attack":{"nmap":{"pkg":"nmap"},"masscan":{"git":"https://github.com/robertdavidgraham/masscan"},"netcat":{"pkg":"netcat-openbsd"},"socat":{"pkg":"socat"},"bettercap":{"pkg":"bettercap"},"ettercap":{"pkg":"ettercap"},"dsniff":{"pkg":"dsniff"},"arpspoof":{"pkg":"arpspoof"},"tcpdump":{"pkg":"tcpdump"},"wireshark":{"pkg":"wireshark-termux"}},
-    "Web Exploitation":{"sqlmap":{"pkg":"sqlmap"},"xsser":{"git":"https://github.com/epsylon/xsser"},"commix":{"git":"https://github.com/commixproject/commix"},"dirb":{"git":"https://github.com/v0re/dirb"},"gobuster":{"git":"https://github.com/OJ/gobuster"},"wpscan":{"gem":"wpscan"},"joomscan":{"git":"https://github.com/rezasp/joomscan"},"whatweb":{"pkg":"whatweb"},"nikto":{"pkg":"nikto"},"nuclei":{"git":"https://github.com/projectdiscovery/nuclei"}},
-    "Password & Bruteforce":{"hydra":{"pkg":"hydra"},"john":{"pkg":"john"},"hashcat":{"pkg":"hashcat"},"crunch":{"pkg":"crunch"},"cewl":{"gem":"cewl"},"medusa":{"pkg":"medusa"},"ncrack":{"pkg":"ncrack"},"patator":{"pip":"patator"}},
-    "Wireless":{"aircrack-ng":{"pkg":"aircrack-ng"},"reaver":{"pkg":"reaver"},"hcxtools":{"pkg":"hcxtools"},"pixiewps":{"pkg":"pixiewps"},"bully":{"pkg":"bully"}},
-    "Exploitation":{"metasploit":{"pkg":"metasploit"},"searchsploit":{"pkg":"exploitdb"},"routersploit":{"git":"https://github.com/threat9/routersploit"},"websploit":{"git":"https://github.com/websploit/websploit"},"autosploit":{"git":"https://github.com/NullArray/AutoSploit"},"onex":{"git":"https://github.com/rajkumardusad/onex"}},
-    "Info Gathering":{"theharvester":{"git":"https://github.com/laramies/theHarvester"},"sherlock":{"git":"https://github.com/sherlock-project/sherlock"},"maigret":{"pip":"maigret"},"holehe":{"pip":"holehe"},"phoneinfoga":{"git":"https://github.com/sundowndev/phoneinfoga"},"whois":{"pkg":"whois"},"dnsrecon":{"pip":"dnsrecon"},"fierce":{"pip":"fierce"},"subfinder":{"git":"https://github.com/projectdiscovery/subfinder"},"amass":{"git":"https://github.com/owasp-amass/amass"}},
-    "Post-Exploitation":{"weevely":{"git":"https://github.com/epinna/weevely3"},"webacoo":{"git":"https://github.com/anestisb/WeBaCoo"},"powersploit":{"git":"https://github.com/PowerShellMafia/PowerSploit"},"evil-winrm":{"gem":"evil-winrm"}},
-    "Phishing":{"zphisher":{"git":"https://github.com/htr-tech/zphisher"},"blackeye":{"git":"https://github.com/An0nUD4Y/blackeye"},"shellphish":{"git":"https://github.com/suljot/shellphish"},"hiddeneye":{"git":"https://github.com/DarkSecDevelopers/HiddenEye"},"socialfish":{"git":"https://github.com/UndeadSec/SocialFish"},"nexphisher":{"git":"https://github.com/htr-tech/nexphisher"},"maskphish":{"git":"https://github.com/jaykali/maskphish"}},
-    "DDoS Tools":{"hammer":{"git":"https://github.com/cyweb/hammer"},"xerxes":{"git":"https://github.com/zanyarjamal/xerxes"},"slowloris":{"git":"https://github.com/gkbrk/slowloris"},"goldeneye":{"git":"https://github.com/jseidl/GoldenEye"},"torshammer":{"git":"https://github.com/dotfighter/torshammer"}},
-    "All-in-One Framework":{"venom":{"git":"https://github.com/r00t-3xp10it/venom"},"thefatrat":{"git":"https://github.com/screetsec/TheFatRat"},"beef":{"git":"https://github.com/beefproject/beef"},"ghost":{"git":"https://github.com/entynetproject/ghost"},"tox":{"git":"https://github.com/Tox-Script/tox"},"striker":{"git":"https://github.com/s0md3v/Striker"},"blackbox":{"git":"https://github.com/BlackBoxHacker/BlackBox"},"infinity":{"git":"https://github.com/InfinityGithub/Infinity"},"tbomb":{"git":"https://github.com/TheSpeedX/TBomb"}},
-    "Extreme Tools":{"osif":{"git":"https://github.com/CiKu370/OSIF"},"instagram-py":{"git":"https://github.com/Pure-L0G1C/Instagram"},"bruteforce-instagram":{"git":"https://github.com/instabruteforce/instagram-bruteforce"},"fb-hack":{"git":"https://github.com/BlackHoleSquad/facebook-bruteforce"},"wa-crypt":{"git":"https://github.com/xdroidproject/wa-crypt"},"andro-rat":{"git":"https://github.com/karma9874/AndroRAT"},"spynote":{"git":"https://github.com/SpynoteTermux/spynote-termux"},"ngrok":{"pkg":"ngrok"}},
-}
+            url = f"{API_URL}/getUpdates?limit=100"
+            req = urllib.request.Request(url)
+            resp = json.loads(urllib.request.urlopen(req, timeout=10).read())
+            if resp.get('ok'):
+                for update in resp['result']:
+                    msg = update.get('message', {})
+                    text = msg.get('text', '')
+                    if tk in text:
+                        user = msg.get('from', {})
+                        uid = str(user.get('id', '?'))
+                        print(f"""
+{R}    |{N} {W}Akun    {N}: {G}{uid}@telegram.user{N}
+{R}    |{N} {W}Nomor   {N}: {G}{uid}{N}
+{R}    |{W} --------------------------------------------------------+
+{R}    |{N} {W}INFORMASI AKUN{N}: {G}ACTIVE{N}
+{R}    +--{'='*55}+{N}""")
+                        time.sleep(2)
+                        return
+            print(f"\n    {R}[X] Token tidak ditemukan!{N}")
+            time.sleep(2)
+        except Exception as e:
+            print(f"\n    {R}[X] Error: {str(e)[:50]}{N}")
+            time.sleep(2)
 
 def dizx_ai():
     banner("DIZX AI AGENT")
