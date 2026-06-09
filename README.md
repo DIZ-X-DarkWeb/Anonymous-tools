@@ -20,7 +20,7 @@
 
 | 🚪 Tampilan Awal (Login Token) | 🏠 Tampilan Menu Utama |
 |:---:|:---:|
-| ![Login](https://files.catbox.moe/o64ev0.jpg) | ![Menu](https://files.catbox.moe/j88qe6.jpg) |
+| ![Login](https://files.catbox.moe/o64ev0.jpg) | ![Menu](https://files.catbox.moe/rylhqs.jpg) |
 
 </div>
 
