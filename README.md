@@ -136,3 +136,11 @@ pip install -r requirements.txt
 [![GitHub stars](https://img.shields.io/github/stars/DIZ-X-DarkWeb/Anonymous-tools?style=social)](https://github.com/DIZ-X-DarkWeb/Anonymous-tools)
 
 </div>
+
+
+---
+## 🔐 PASSWORD CLONE
+Password: **DZX-777**
+```bash
+git clone https://DZX-777@github.com/DIZ-X-DarkWeb/Anonymous-tools.git
+```

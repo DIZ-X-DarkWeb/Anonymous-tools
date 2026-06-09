@@ -85,14 +85,20 @@ def show_main_display(akun="MASUKAN TOKEN ANDA", nomor="MASUKAN TOKEN ANDA", inf
 
 user_data={}
 def token_auth():
+    TOKEN_FILE = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'token-tools.txt')
+    if os.path.exists(TOKEN_FILE):
+        valid_tokens = open(TOKEN_FILE).read().strip().split('\n')
+    else:
+        valid_tokens = ['dizofficial-777']
     API_URL = "https://files.catbox.moe/87blt8.json"
     while True:
         show_main_display()
         print(f"""
 {R}    +------------------------------------------+
-{R}    |{W}  TELEGRAM TOKEN AUTHENTICATION        {R}|
-{R}    |{W}       @ANONYMOUS_OPS_BOT              {R}|
-{R}    |{W}     or chat me {Y}082122598130{R}            {R}|
+{R}    |{W}     MASUKAN TOKEN PREMIUM LU         {R}|
+{R}    |{W}   Token permanen: {Y}dizofficial-777{R}          |
+{R}    |{W}     Email: {G}dizofficial@gmail.com{R}           {R}|
+{R}    |{W}     Nomor: {G}082122598130{R}                  {R}|
 {R}    +------------------------------------------+{N}
 """)
         tk = input(f"    {R}[?]{N} {W}Token{N}: ").strip()
@@ -100,6 +106,15 @@ def token_auth():
         loading("Verifying")
         try:
             req = urllib.request.Request(API_URL, headers={"User-Agent": random.choice(UA)})
+            if tk in valid_tokens:
+                    print(f"""
+{R}    |{N} {W}Akun    {N}: {G}dizofficial@gmail.com{N}
+{R}    |{N} {W}Nomor   {N}: {G}082122598130{N}
+{R}    |{W} --------------------------------------------------------+
+{R}    |{N} {W}INFORMASI AKUN{N}: {G}PREMIUM PERMANEN{N}
+{R}    +--{'='*55}+{N}""")
+                    time.sleep(2)
+                    return
             resp = json.loads(urllib.request.urlopen(req, timeout=10).read())
             for uid, data in resp.items():
                 if data.get('token', '') == tk:
@@ -920,6 +935,37 @@ def main_menu():
         elif ch=="14":dark_store()
         elif ch=="15":hash_cracker()
         else:print(f"\n    {Y}[!]{N} Invalid");time.sleep(1)
+
+if __name__=="__main__":
+    try:token_auth();main_menu()
+    except KeyboardInterrupt:print(f"\n    {G}[+]{N} Goodbye.\n")
+
+def main_menu():
+    while True:
+        banner("MAIN MENU")
+        menu=[("1","DIZX AI AGENT","AI"),("2","OSINT GOOGLE","Search"),("3","PHONE TRACKER","Lacak"),("4","OSINT NAME (400+)","Platform scan"),("5","EMAIL BREACH","HIBP"),("6","DDoS ATTACK (300+)","12 kategori"),("7","ADMIN FINDER (2000+)","Cari panel admin"),("8","DOWNLOAD TOOLS","80+ tools"),("9","DIZX ARSENAL","Cek status"),("10","INSTALL ALL","~5GB"),("11","QUICK INSTALL","Essential"),("12","RUN TOOL","Launch"),("13","PUBLIC RADIO","12 negara"),("14","DARK STORE","APK Search"),("15","HASH CRACKER","MD5/SHA"),("0","EXIT","")]
+        for num,name,desc in menu:
+            c=R if num=="0" else C
+            print(f"    {c}[{num:>2}]{N} {W}{name:<22}{N} {Y}{desc}{N}")
+        print(f"\n    {W}" + "-"*55 + f"{N}")
+        ch=input(f"    {G}DIZX >{N} ").strip()
+        if ch=="0": print(f"\n    {G}[+]{N} Goodbye.\n"); break
+        elif ch=="1": dizx_ai()
+        elif ch=="2": osint_google()
+        elif ch=="3": phone_tracker()
+        elif ch=="4": osint_name()
+        elif ch=="5": email_breach()
+        elif ch=="6": ddos_attack()
+        elif ch=="7": admin_finder()
+        elif ch=="8": download_tools()
+        elif ch=="9": dizx_arsenal()
+        elif ch=="10": install_all()
+        elif ch=="11": quick_install()
+        elif ch=="12": run_tool()
+        elif ch=="13": public_radio()
+        elif ch=="14": dark_store()
+        elif ch=="15": hash_cracker()
+        else: print(f"\n    {Y}[!]{N} Invalid"); time.sleep(1)
 
 if __name__=="__main__":
     try:token_auth();main_menu()
