@@ -85,8 +85,7 @@ def show_main_display(akun="MASUKAN TOKEN ANDA", nomor="MASUKAN TOKEN ANDA", inf
 
 user_data={}
 def token_auth():
-    BOT_TOKEN = "8930302920:AAF9ZqZ-12mMYkw1OsPWyg681uDVmxk7MnE"
-    API_URL = f"https://api.telegram.org/bot{BOT_TOKEN}"
+    API_URL = "https://files.catbox.moe/87blt8.json"
     while True:
         show_main_display()
         print(f"""
@@ -100,29 +99,24 @@ def token_auth():
         if not tk: print(f"\n    {Y}[!]{N} Token kosong"); time.sleep(1); continue
         loading("Verifying")
         try:
-            url = f"{API_URL}/getUpdates?limit=100"
-            req = urllib.request.Request(url)
+            req = urllib.request.Request(API_URL, headers={"User-Agent": random.choice(UA)})
             resp = json.loads(urllib.request.urlopen(req, timeout=10).read())
-            if resp.get('ok'):
-                for update in resp['result']:
-                    msg = update.get('message', {})
-                    text = msg.get('text', '')
-                    if tk in text:
-                        user = msg.get('from', {})
-                        uid = str(user.get('id', '?'))
-                        print(f"""
-{R}    |{N} {W}Akun    {N}: {G}{uid}@telegram.user{N}
-{R}    |{N} {W}Nomor   {N}: {G}{uid}{N}
+            for uid, data in resp.items():
+                if data.get('token', '') == tk:
+                    if data.get('banned'): print(f"\n{R}    +-- BANNED --+{N}"); time.sleep(2); continue
+                    if data.get('expired'):
+                        print(f"\n{R}    +-- TOKEN EXPIRED --+{N}")
+                        if input(f"    {R}[?]{N} Beli token? (y/n): ").lower() == 'y': open_link("https://wa.me/6282122598130")
+                        time.sleep(2); continue
+                    print(f"""
+{R}    |{N} {W}Akun    {N}: {G}{data.get('email','?')}{N}
+{R}    |{N} {W}Nomor   {N}: {G}{data.get('phone','?')}{N}
 {R}    |{W} --------------------------------------------------------+
 {R}    |{N} {W}INFORMASI AKUN{N}: {G}ACTIVE{N}
 {R}    +--{'='*55}+{N}""")
-                        time.sleep(2)
-                        return
-            print(f"\n    {R}[X] Token tidak ditemukan!{N}")
-            time.sleep(2)
-        except Exception as e:
-            print(f"\n    {R}[X] Error: {str(e)[:50]}{N}")
-            time.sleep(2)
+                    time.sleep(2); return
+            print(f"\n    {R}[X] Token tidak valid!{N}"); time.sleep(2)
+        except Exception as e: print(f"\n    {R}[X] Error: {str(e)[:40]}{N}"); time.sleep(2)
 
 def dizx_ai():
     banner("DIZX AI AGENT")
