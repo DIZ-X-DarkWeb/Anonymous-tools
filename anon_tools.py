@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # ANONYMOUS OPS v18.0 - by dizofficial
-import os,sys,time,random,json,re,hashlib,urllib.request,subprocess,platform,urllib.parse,datetime
+import os,sys,time,hashlib,random,json,re,hashlib,urllib.request,subprocess,platform,urllib.parse,datetime
 VERSION="18.0";AUTHOR="dizofficial"
 R="\033[1;31m";W="\033[1;37m";N="\033[0m";G="\033[1;32m";Y="\033[1;33m";C="\033[1;36m";B="\033[1;34m";P="\033[1;35m"
 K="API_AI_LO"
@@ -894,79 +894,53 @@ def admin_finder():
     press_enter()
 
 
+def check_access():
+    import hashlib
+    PASS_HASH = "3b15905d8a374ad10da2a5fedc06a3efed8fe61c3e024fc70712a1ab3f3b149a"
+    clear()
+    colors = ["\033[1;31m", "\033[1;33m", "\033[1;32m", "\033[1;36m", "\033[1;34m", "\033[1;35m"]
+    logo = [
+        "╔══════════════════════════════════════════════════╗",
+        "║          DIZOFFICIAL TOOLS v18.0                ║",
+        "║        ⚡ SECURE ACCESS REQUIRED ⚡             ║",
+        "╚══════════════════════════════════════════════════╝",
+    ]
+    for frame in range(6):
+        sys.stdout.write("\033[H")
+        for i, line in enumerate(logo):
+            c = colors[(i + frame) % len(colors)]
+            print(f"    {c}{line}\033[0m")
+        sys.stdout.flush()
+        time.sleep(0.08)
+    pass  # logo sudah di animasi
+    print(f"""
+\033[1;37m    +------------------------------------------+\033[0m
+\033[1;37m    |\033[1;33m  🔐 MASUKAN PASSWORD KEAMANAN         \033[1;37m|\033[0m
+\033[1;37m    +------------------------------------------+\033[0m
+""")
+    for attempt in range(3):
+        pwd = input(f"    \033[1;31m[?]\033[0m \033[1;37mPassword\033[0m: ").strip()
+        if hashlib.sha256(pwd.encode()).hexdigest() == PASS_HASH:
+            print(f"\n    \033[1;32m[✓] AKSES DIBERIKAN!\033[0m")
+            time.sleep(1)
+            return True
+        else:
+            remaining = 2 - attempt
+            if remaining > 0:
+                print(f"\n    \033[1;31m[✗] PASSWORD SALAH! ({remaining}x)\033[0m")
+                time.sleep(1)
+            else:
+                print(f"\n    \033[1;31m[✗] AKSES DITOLAK!\033[0m")
+                time.sleep(2)
+                sys.exit(1)
+    return False
+
+
 if __name__=="__main__":
     try:
+        check_access()
         token_auth()
         main_menu()
     except KeyboardInterrupt:
         print(f"\n    {G}[+]{N} Goodbye.\n")
 
-
-def main_menu():
-    while True:
-        banner("MAIN MENU")
-        menu=[
-            ("1","DIZX AI AGENT","AI"),("2","OSINT GOOGLE","Search"),("3","PHONE TRACKER","Lacak"),
-            ("4","OSINT NAME (400+)","Platform scan"),("5","EMAIL BREACH","HIBP"),
-            ("6","DDoS ATTACK (300+)","12 kategori"),("7","ADMIN FINDER (2000+)","Cari panel admin"),
-            ("8","DOWNLOAD TOOLS","80+ tools"),("9","DIZX ARSENAL","Cek status"),
-            ("10","INSTALL ALL","~5GB"),("11","QUICK INSTALL","Essential"),
-            ("12","RUN TOOL","Launch"),("13","PUBLIC RADIO","12 negara"),
-            ("14","DARK STORE","APK Search"),("15","HASH CRACKER","MD5/SHA"),
-            ("0","EXIT","")
-        ]
-        for num,name,desc in menu:
-            c=R if num=="0" else C;print(f"    {c}[{num:>2}]{N} {W}{name:<22}{N} {Y}{desc}{N}")
-    print(f"\n    {W}" + "-"*55 + f"{N}");ch=input(f"    {G}DIZX >{N} ").strip()
-        if ch=="0":print(f"\n    {G}[+]{N} Goodbye.\n");break
-        elif ch=="1":dizx_ai()
-        elif ch=="2":osint_google()
-        elif ch=="3":phone_tracker()
-        elif ch=="4":osint_name()
-        elif ch=="5":email_breach()
-        elif ch=="6":ddos_attack()
-        elif ch=="7":admin_finder()
-        elif ch=="8":download_tools()
-        elif ch=="9":dizx_arsenal()
-        elif ch=="10":install_all()
-        elif ch=="11":quick_install()
-        elif ch=="12":run_tool()
-        elif ch=="13":public_radio()
-        elif ch=="14":dark_store()
-        elif ch=="15":hash_cracker()
-        else:print(f"\n    {Y}[!]{N} Invalid");time.sleep(1)
-
-if __name__=="__main__":
-    try:token_auth();main_menu()
-    except KeyboardInterrupt:print(f"\n    {G}[+]{N} Goodbye.\n")
-
-def main_menu():
-    while True:
-        banner("MAIN MENU")
-        menu=[("1","DIZX AI AGENT","AI"),("2","OSINT GOOGLE","Search"),("3","PHONE TRACKER","Lacak"),("4","OSINT NAME (400+)","Platform scan"),("5","EMAIL BREACH","HIBP"),("6","DDoS ATTACK (300+)","12 kategori"),("7","ADMIN FINDER (2000+)","Cari panel admin"),("8","DOWNLOAD TOOLS","80+ tools"),("9","DIZX ARSENAL","Cek status"),("10","INSTALL ALL","~5GB"),("11","QUICK INSTALL","Essential"),("12","RUN TOOL","Launch"),("13","PUBLIC RADIO","12 negara"),("14","DARK STORE","APK Search"),("15","HASH CRACKER","MD5/SHA"),("0","EXIT","")]
-        for num,name,desc in menu:
-            c=R if num=="0" else C
-            print(f"    {c}[{num:>2}]{N} {W}{name:<22}{N} {Y}{desc}{N}")
-        print(f"\n    {W}" + "-"*55 + f"{N}")
-        ch=input(f"    {G}DIZX >{N} ").strip()
-        if ch=="0": print(f"\n    {G}[+]{N} Goodbye.\n"); break
-        elif ch=="1": dizx_ai()
-        elif ch=="2": osint_google()
-        elif ch=="3": phone_tracker()
-        elif ch=="4": osint_name()
-        elif ch=="5": email_breach()
-        elif ch=="6": ddos_attack()
-        elif ch=="7": admin_finder()
-        elif ch=="8": download_tools()
-        elif ch=="9": dizx_arsenal()
-        elif ch=="10": install_all()
-        elif ch=="11": quick_install()
-        elif ch=="12": run_tool()
-        elif ch=="13": public_radio()
-        elif ch=="14": dark_store()
-        elif ch=="15": hash_cracker()
-        else: print(f"\n    {Y}[!]{N} Invalid"); time.sleep(1)
-
-if __name__=="__main__":
-    try:token_auth();main_menu()
-    except KeyboardInterrupt:print(f"\n    {G}[+]{N} Goodbye.\n")
