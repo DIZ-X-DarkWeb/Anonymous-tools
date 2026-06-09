@@ -81,7 +81,7 @@ def show_main_display(akun="MASUKAN TOKEN ANDA", nomor="MASUKAN TOKEN ANDA", inf
 {R}    |{N} {W}Nomor   {N}: {N}{nomor}{N}
 {R}    |{W} --------------------------------------------------------+
 {R}    |{N} {W}INFORMASI AKUN{N}: {G}{info_akun}{N}
-{R}    +--{'='*55}+{N}""")
+{R}    +--{"="*55}+{N}""")
 
 user_data={}
 def token_auth():
@@ -106,14 +106,14 @@ def token_auth():
                     if data.get('banned'): print(f"\n{R}    +-- BANNED --+{N}"); time.sleep(2); continue
                     if data.get('expired'):
                         print(f"\n{R}    +-- TOKEN EXPIRED --+{N}")
-                        if input(f"    {R}[?]{N} Beli token? (y/n): ").lower() == 'y': open_link("https://wa.me/6282122598130")
+                        if input(f"    {R}[?]{N} Perpanjang? (y/n): ").lower() == 'y': open_link("https://wa.me/6282122598130")
                         time.sleep(2); continue
                     print(f"""
 {R}    |{N} {W}Akun    {N}: {G}{data.get('email','?')}{N}
 {R}    |{N} {W}Nomor   {N}: {G}{data.get('phone','?')}{N}
 {R}    |{W} --------------------------------------------------------+
 {R}    |{N} {W}INFORMASI AKUN{N}: {G}ACTIVE{N}
-{R}    +--{'='*55}+{N}""")
+{R}    +--{"="*55}+{N}""")
                     time.sleep(2); return
             print(f"\n    {R}[X] Token tidak valid!{N}"); time.sleep(2)
         except Exception as e: print(f"\n    {R}[X] Error: {str(e)[:40]}{N}"); time.sleep(2)
@@ -885,3 +885,42 @@ if __name__=="__main__":
         main_menu()
     except KeyboardInterrupt:
         print(f"\n    {G}[+]{N} Goodbye.\n")
+
+
+def main_menu():
+    while True:
+        banner("MAIN MENU")
+        menu=[
+            ("1","DIZX AI AGENT","AI"),("2","OSINT GOOGLE","Search"),("3","PHONE TRACKER","Lacak"),
+            ("4","OSINT NAME (400+)","Platform scan"),("5","EMAIL BREACH","HIBP"),
+            ("6","DDoS ATTACK (300+)","12 kategori"),("7","ADMIN FINDER (2000+)","Cari panel admin"),
+            ("8","DOWNLOAD TOOLS","80+ tools"),("9","DIZX ARSENAL","Cek status"),
+            ("10","INSTALL ALL","~5GB"),("11","QUICK INSTALL","Essential"),
+            ("12","RUN TOOL","Launch"),("13","PUBLIC RADIO","12 negara"),
+            ("14","DARK STORE","APK Search"),("15","HASH CRACKER","MD5/SHA"),
+            ("0","EXIT","")
+        ]
+        for num,name,desc in menu:
+            c=R if num=="0" else C;print(f"    {c}[{num:>2}]{N} {W}{name:<22}{N} {Y}{desc}{N}")
+    print(f"\n    {W}" + "-"*55 + f"{N}");ch=input(f"    {G}DIZX >{N} ").strip()
+        if ch=="0":print(f"\n    {G}[+]{N} Goodbye.\n");break
+        elif ch=="1":dizx_ai()
+        elif ch=="2":osint_google()
+        elif ch=="3":phone_tracker()
+        elif ch=="4":osint_name()
+        elif ch=="5":email_breach()
+        elif ch=="6":ddos_attack()
+        elif ch=="7":admin_finder()
+        elif ch=="8":download_tools()
+        elif ch=="9":dizx_arsenal()
+        elif ch=="10":install_all()
+        elif ch=="11":quick_install()
+        elif ch=="12":run_tool()
+        elif ch=="13":public_radio()
+        elif ch=="14":dark_store()
+        elif ch=="15":hash_cracker()
+        else:print(f"\n    {Y}[!]{N} Invalid");time.sleep(1)
+
+if __name__=="__main__":
+    try:token_auth();main_menu()
+    except KeyboardInterrupt:print(f"\n    {G}[+]{N} Goodbye.\n")
