@@ -3,3 +3,4 @@ __pycache__/
 .config/
 *.key
 session.json
+nohup.out
