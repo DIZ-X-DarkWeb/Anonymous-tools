@@ -542,7 +542,17 @@ def main_menu():
         for num,name,desc in menu:
             c=R if num=='0' else C;print(f"    {c}[{num:>2}]{N} {W}{name:<22}{N} {Y}{desc}{N}")
         print(f"\n    {W}{'-'*55}{N}");ch=input(f"    {R}DIZX{R} > {W}").strip()
-        if ch=='0':clear();print(f"\n    {G}[+]{N} Exit\n");sys.exit(0)
+        if ch=="0":
+            clear()
+            logo_file=f"{PREFIX}/share/anonymous/ascii_art_color.txt"
+            if os.path.exists(logo_file):
+                lines=open(logo_file).read().splitlines()
+                for i,l in enumerate(lines):
+                    c="\033[1;31m" if i<len(lines)//2 else "\033[1;37m"
+                    o="".join(c+ch if ch!=" " else " " for ch in l)
+                    print(f"    {o}\033[0m")
+            print(f"\n    {G}[+]{N} Goodbye.\n")
+            sys.exit(0)
         elif ch=='1':dizx_ai()
         elif ch=='2':osint_google()
         elif ch=='3':phone_tracker()
@@ -560,4 +570,7 @@ def main_menu():
         elif ch=='15':hash_cracker()
 if __name__=='__main__':
     try:main_menu()
-    except KeyboardInterrupt:clear();print(f"\n    {G}[+]{N} Exit\n");sys.exit(0)
+    except KeyboardInterrupt:
+        show_main_display()
+        print(f"\n    {G}[+]{N} Goodbye.\n")
+        sys.exit(0)
