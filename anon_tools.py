@@ -58,6 +58,22 @@ def get_device_info():
 def show_main_display():
     clear()
     logo_file=f"{PREFIX}/share/anonymous/ascii_art_color.txt"
+    
+    # Auto-create ascii_art_color.txt kalo gak ada
+    if not os.path.exists(logo_file):
+        os.makedirs(os.path.dirname(logo_file), exist_ok=True)
+        with open(logo_file, 'w') as f:
+            f.write("""╔══════════════════════════════════════════════════╗
+║                                                  ║
+║  ██████╗ ███████╗██╗  ██╗       ╔══════╗         ║
+║  ██╔══██╗╚══███╔╝╚██╗██╔╝       ║  ಠ︵ಠ║         ║
+║  ██║  ██║  ███╔╝  ╚███╔╝  ███╗  ║FOLLOW║         ║
+║  ██║  ██║ ███╔╝   ██╔██╗  ╚══╝  ║TIKTOK║══════╗  ║
+║  ██████╔╝███████╗██╔╝ ██╗       ║@_dizofficial║  ║
+║  ╚═════╝ ╚══════╝╚═╝  ╚═╝       ╚═════════════╝  ║
+║                                                  ║
+╚══════════════════════════════════════════════════╝""")
+
     if os.path.exists(logo_file):
         lines=open(logo_file).read().splitlines()
         for i,l in enumerate(lines):
@@ -543,5 +559,5 @@ def main_menu():
         elif ch=='14':dark_store()
         elif ch=='15':hash_cracker()
 if __name__=='__main__':
-    try:token_auth();main_menu()
+    try:main_menu()
     except KeyboardInterrupt:clear();print(f"\n    {G}[+]{N} Exit\n");sys.exit(0)
