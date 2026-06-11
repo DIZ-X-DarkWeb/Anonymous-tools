@@ -15,14 +15,25 @@ echo -e "${P}║${W}     CLONE TOOLS BY DIZOFFICIAL          ${P}║${N}"
 echo -e "${P}╚══════════════════════════════════════════╝${N}"
 echo ""
 
-anim() { for i in $(seq 1 $1); do echo -ne "${C}▰${N}"; done; for i in $(seq 1 $((10-$1))); do echo -ne "${R}▱${N}"; done; }
+# Animasi smooth
+steps=("Cloning repository..." "Resolving dependencies..." "Patching source files..." "Compiling modules..." "Generating checksum...")
+targets=(10 35 55 80 99)
 
-echo -ne "\r    $(anim 1) ${Y}10%${N} — ${W}Cloning repository...${N}        "; sleep 0.4; echo ""
-echo -ne "\r    $(anim 3) ${Y}35%${N} — ${W}Resolving dependencies...${N}    "; sleep 0.5; echo ""
-echo -ne "\r    $(anim 5) ${Y}55%${N} — ${W}Patching source files...${N}     "; sleep 0.4; echo ""
-echo -ne "\r    $(anim 8) ${Y}80%${N} — ${W}Compiling modules...${N}        "; sleep 0.5; echo ""
-echo -ne "\r    $(anim 9) ${Y}99%${N} — ${W}Generating checksum...${N}      "; sleep 0.4; echo ""
-echo -ne "\r    ${G}██████████${N} ${Y}100%${N} — ${G}BUILD COMPLETE${N}           "; sleep 0.5; echo ""
+for i in $(seq 0 4); do
+    step="${steps[$i]}"
+    target=${targets[$i]}
+    for j in $(seq 0 $target); do
+        bar=""
+        for k in $(seq 1 $((j/10))); do bar+="${C}▰${N}"; done
+        for k in $(seq 1 $((10-${#bar}/9))); do bar+="${R}▱${N}"; done
+        echo -ne "\r    ${bar} ${Y}${j}%${N} — ${W}${step}${N}   "
+        sleep 0.02
+    done
+    echo ""
+done
+echo -ne "\r    ${G}██████████${N} ${Y}100%${N} — ${G}BUILD COMPLETE${N}           "
+sleep 0.5
+echo ""
 
 echo ""
 echo -e "    ${C}REPO${N}        : ${W}github.com/DIZ-X-DarkWeb/Anonymous-tools${N}"
@@ -34,8 +45,14 @@ echo ""
 echo -e "    ${G}[OK]${N} Deployed — ${W}ready to use.${N}"
 echo ""
 
-# Silent install
-echo -e "    ${C}[*]${N} Installing... (silent mode)"
+# Install dengan animasi per baris
+install_steps=("Installing packages..." "Installing python modules..." "Setting up logo ASCII..." "Configuring terminal...")
+for step in "${install_steps[@]}"; do
+    echo -ne "    ${C}[*]${N} ${W}${step}${N}"
+    sleep 0.3
+    echo -e " ${G}✓${N}"
+done
+
 pkg install python git python-pip -y &>/dev/null
 pip install requests &>/dev/null
 mkdir -p $PREFIX/share/anonymous
