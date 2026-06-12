@@ -1,9 +1,9 @@
 #!/bin/bash
 PASS_HASH="884b4c4e8737a99d2fafe1a9386d9706ebfcd16e3e6b2cd15391576de73d2707"
-echo -e "    ${W}┌──────────────┐${N}"
-echo -ne "    ${W}│${N} password: "
+echo -e "    ${R}┌──────────────────────┐${N}"
+echo -ne "    ${R}│${N}  ${W}password${N}: "
 read pwd
-echo -e "${W}└──────────────┘${N}"
+echo -e "    ${R}└──────────────────────┘${N}"
 echo ""
 if [ "$(echo -n "$pwd" | sha256sum | cut -d' ' -f1)" != "$PASS_HASH" ]; then
     echo -ne "    ${R}password salah, coba lagi? (y/n)${N}: "
