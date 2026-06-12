@@ -58,22 +58,6 @@ def get_device_info():
 def show_main_display():
     clear()
     logo_file=f"{PREFIX}/share/anonymous/ascii_art_color.txt"
-    
-    # Auto-create ascii_art_color.txt kalo gak ada
-    if not os.path.exists(logo_file):
-        os.makedirs(os.path.dirname(logo_file), exist_ok=True)
-        with open(logo_file, 'w') as f:
-            f.write("""╔══════════════════════════════════════════════════╗
-║                                                  ║
-║  ██████╗ ███████╗██╗  ██╗       ╔══════╗         ║
-║  ██╔══██╗╚══███╔╝╚██╗██╔╝       ║  ಠ︵ಠ║         ║
-║  ██║  ██║  ███╔╝  ╚███╔╝  ███╗  ║FOLLOW║         ║
-║  ██║  ██║ ███╔╝   ██╔██╗  ╚══╝  ║TIKTOK║══════╗  ║
-║  ██████╔╝███████╗██╔╝ ██╗       ║@_dizofficial║  ║
-║  ╚═════╝ ╚══════╝╚═╝  ╚═╝       ╚═════════════╝  ║
-║                                                  ║
-╚══════════════════════════════════════════════════╝""")
-
     if os.path.exists(logo_file):
         lines=open(logo_file).read().splitlines()
         for i,l in enumerate(lines):
@@ -104,7 +88,27 @@ def show_main_display():
     print(f" {R}|{N}")
     print(f" {R}+-----------------------------------------------------------+{N}")
 def banner(title):
-    show_main_display()
+    clear()
+    logo_file=f"{PREFIX}/share/anonymous/ascii_art_color.txt"
+    if os.path.exists(logo_file):
+        art=open(logo_file).read().splitlines()
+        for i,l in enumerate(art):
+            c='\033[1;31m' if i<len(art)//2 else '\033[1;37m'
+            o=''.join(c+ch if ch!=' ' else ' ' for ch in l)
+            print(f"    {o}\033[0m")
+    d=get_device_info()
+    print(f"""
+{R}    +-- SYSTEM INFO {'-'*45}+
+{R}    |{R} {W}by      {N}: {R}@dizofficial DZX-777{R}
+{R}    |{N} {W}OS      {N}: {G}{d['os']}{N}
+{R}    |{N} {W}Host    {N}: {G}{d['host']}{N}
+{R}    |{N} {W}Kernel  {N}: {G}{d['kernel']}{N}
+{R}    |{N} {W}Uptime  {N}: {G}{d['uptime']}{N}
+{R}    |{N} {W}Packages{N}: {G}{d['packages']}{N}
+{R}    |{N} {W}Shell   {N}: {G}{d['shell']}{N}
+{R}    |{N} {W}CPU     {N}: {G}{d['cpu']}{N}
+{R}    |{N} {W}Memory  {N}: {G}{d['memory']}{N}
+{R}    +--{'='*55}+{N}""")
     print(f"\n{R}    [*]{W} {title}{N}")
     print(f"{R}    [*]{W} {'-'*50}{N}")
 TOOLS_DB={
@@ -121,32 +125,8 @@ TOOLS_DB={
     "Extreme Tools":{"osif":{"git":"https://github.com/CiKu370/OSIF"},"instagram-py":{"git":"https://github.com/Pure-L0G1C/Instagram"},"bruteforce-instagram":{"git":"https://github.com/instabruteforce/instagram-bruteforce"},"fb-hack":{"git":"https://github.com/BlackHoleSquad/facebook-bruteforce"},"wa-crypt":{"git":"https://github.com/xdroidproject/wa-crypt"},"andro-rat":{"git":"https://github.com/karma9874/AndroRAT"},"spynote":{"git":"https://github.com/SpynoteTermux/spynote-termux"},"ngrok":{"pkg":"ngrok"}},
 }
 def token_auth():
-    TFILE="/data/data/com.termux/files/home/bot_users.json"
-    while True:
-        show_main_display()
-        print(f"""
-{R}    +------------------------------------------+
-{R}    |{W}  TELEGRAM TOKEN AUTHENTICATION        {R}|
-{R}    |{W}     or chat me {Y}082122598130{R}            {R}|
-{R}    +------------------------------------------+{N}
-""")
-        token=input(f"    {R}[?]{N} {W}Token{N}: ").strip()
-        if not token:print(f"\n    {Y}[!]{N} Token kosong");time.sleep(1);continue
-        print();loading("Verifying")
-        try:
-            users=json.load(open(TFILE))
-            for uid,data in users.items():
-                if data.get('token','').strip()==token.strip():
-                    if data.get('banned'):print(f"\n{R}    +-- BANNED --+{N}");time.sleep(2);continue
-                    if data.get('expired'):print(f"\n{R}    +-- EXPIRED --+{N}");time.sleep(2);continue
-                    print(f"""
-{R}    +-- ACCOUNT INFO {'-'*45}+
-{R}    |{N}   {W}Status:{G}ACTIVE{N} {W}Email:{Y}{data.get('email','?')}{N}
-{R}    |{N}   {W}Phone:{C}{data.get('phone','?')}{N} {W}Token:{G}{token[:20]}...{N}
-{R}    +--{'='*50}+{N}""")
-                    time.sleep(2);return
-            print(f"\n    {R}[X] Invalid!{N}");time.sleep(2)
-        except:print(f"\n    {R}[X] Error{N}");time.sleep(2)
+    return
+
 def dizx_ai():
     banner("DIZX AI AGENT")
     print(f"""
@@ -332,16 +312,226 @@ def ddos_attack():
                 while time.time()<end and not stop['stop']:
                     pct=min(int((duration-(end-time.time()))/duration*100),100)
                     sys.stdout.write(f'\r    [{R}{"#"*int(pct/5)}{W}{"-"*(20-int(pct/5))}{N}] {Y}{pct}%{N} | {W}Pkt:{G}{pc[0]}{N}   ');sys.stdout.flush();time.sleep(1)
-            except KeyboardInterrupt:
-        clear()
-        logo_file=f"{PREFIX}/share/anonymous/ascii_art_color.txt"
-        if os.path.exists(logo_file):
-            lines=open(logo_file).read().splitlines()
-            for i,l in enumerate(lines):
-                c='\033[1;31m' if i<len(lines)//2 else '\033[1;37m'
-                o=''.join(c+ch if ch!=' ' else ' ' for ch in l)
-                print(f"    {o}\033[0m")
-        sys.exit(0)
+            except KeyboardInterrupt:stop['stop']=True
+            print(f"\n\n    {G}[+] {pc[0]} packets{N}");press_enter()
+    except:pass
+RADIO_DB={
+    "Indonesia":["RRI Pro 1 Jakarta","RRI Pro 2 Jakarta","RRI Pro 3 Jakarta","RRI Pro 4 Jakarta","Voice of Indonesia","TVRI Nasional","Prambors FM Jakarta","Gen FM Jakarta","Elshinta Radio","Radio Dalam","Hard Rock FM Jakarta","I-Radio Jakarta","Kis FM Jakarta","Motion Radio Jakarta","Sonora FM Jakarta"],
+    "USA":["NPR","PBS","Voice of America","APM","PRI","PRX","Pacifica Radio","Minnesota Public Radio","KCRW","WNYC","WBEZ Chicago","KEXP Seattle","WFMU","KUT Austin","KQED San Francisco"],
+    "UK":["BBC Radio 1","BBC Radio 2","BBC Radio 3","BBC Radio 4","BBC Radio 5 Live","BBC 6 Music","BBC World Service","Capital FM","Heart FM","Classic FM","LBC","talkSPORT","Absolute Radio","Jazz FM","Smooth Radio"],
+    "Japan":["NHK Radio 1","NHK Radio 2","NHK FM","J-WAVE 81.3FM","Tokyo FM","InterFM","Nippon Cultural Broadcasting","Radio Nippon","Bay FM","FM Yokohama"],
+    "South Korea":["KBS Radio 1","KBS Radio 2","KBS Cool FM","MBC Radio","MBC FM4U","SBS Radio","CBS Music FM","TBS eFM","Arirang Radio","Gugak FM"],
+    "Germany":["Deutschlandfunk","Deutschlandfunk Kultur","Deutschlandfunk Nova","Bayern 1","Bayern 2","Bayern 3","WDR 2","WDR 4","SWR3","NDR 2","Radio Eins","Fritz","hr3","MDR Jump"],
+    "France":["France Inter","France Info","France Culture","France Musique","FIP","NRJ","RTL","Europe 1","RMC","Radio Nova","Chérie FM","RFM","Skyrock","Fun Radio"],
+    "Australia":["ABC Radio Sydney","ABC Radio Melbourne","ABC Classic","Triple J","Double J","ABC NewsRadio","Radio National","SBS Radio 1","SBS Radio 2","2GB Sydney","3AW Melbourne","KIIS 106.5","Nova 96.9","Smooth FM"],
+    "Russia":["Radio Russia","Mayak","Vesti FM","Radio Kultura","Europa Plus","Russkoye Radio","Avtoradio","Radio Energy","DFM","Radio Maximum","Nashe Radio","Radio Jazz"],
+    "Brazil":["Radio Nacional","Radio MEC","Radio Cultura","Jovem Pan","Band FM","Radio Globo","Radio Cidade","Transamérica","Antena 1","Kiss FM","Mix FM","Radio Rock"],
+    "India":["All India Radio","Vividh Bharati","AIR FM Gold","AIR FM Rainbow","Radio Mirchi","Red FM","Big FM","Radio City","Fever FM","Radio One","Ishq FM"],
+    "Netherlands":["NPO Radio 1","NPO Radio 2","NPO 3FM","NPO Radio 4","NPO Radio 5","FunX","Radio 538","Qmusic","Radio 10","Sky Radio","Radio Veronica","Slam!"],
+}
+def public_radio():
+    banner("PUBLIC RADIO - WORLDWIDE")
+    countries=list(RADIO_DB.keys())
+    for i,country in enumerate(countries):
+        print(f"    {C}{i+1:>2}.{N} {W}{country}{N} ({Y}{len(RADIO_DB[country])}{N} stations)")
+    print(f"    {C}[A]{N} {W}ALL STATIONS{N}")
+    print(f"\n    {C}[0]{N} Back")
+    ch=input_prompt("Pilih negara (nomor/A)")
+    if ch=='0':return
+    stations=[]
+    if ch.upper()=='A':
+        for ctry,stns in RADIO_DB.items():
+            for s in stns:stations.append((s,ctry))
+    else:
+        try:
+            idx=int(ch)-1
+            if 0<=idx<len(countries):
+                ctry=countries[idx]
+                for s in RADIO_DB[ctry]:stations.append((s,ctry))
+        except:return
+    while True:
+        banner("PUBLIC RADIO")
+        for i,(name,ctry) in enumerate(stations[:20]):print(f"    {C}{i+1:>2}.{N} {W}{name:<35}{N} {Y}{ctry}{N}")
+        print(f"\n    {R}[0]{N} Back");ch=input_prompt("Select to play")
+        if ch=='0':break
+        if ch.isdigit()and 0<int(ch)<=len(stations):
+            s=stations[int(ch)-1];print(f"\n    {G}[+]{N} {Y}{s[0]}{N}")
+            loading("Mencari stream URL")
+            try:
+                query=urllib.parse.quote(s[0])
+                url=f"https://de1.api.radio-browser.info/json/stations/search?name={query}&limit=1&hidebroken=true"
+                req=urllib.request.Request(url,headers={'User-Agent':random.choice(UA)})
+                data=json.loads(urllib.request.urlopen(req,timeout=10).read())
+                if data:
+                    stream=data[0].get('url_resolved')or data[0].get('url','')
+                    if stream:
+                        print(f"    {G}[+]{N} Streaming...")
+                        try:subprocess.run(['mpv','--no-video','--quiet',stream],timeout=120)
+                        except:print(f"    {Y}[!]{N} Install mpv: pkg install mpv")
+                    else:print(f"    {Y}[!]{N} No stream URL found")
+                else:print(f"    {Y}[!]{N} Station not found in database")
+            except:print(f"    {Y}[!]{N} Network error")
+            input_prompt("Enter")
+def dark_store():
+    banner("DARK STORE - APK SEARCH")
+    query=input_prompt("Search APK")
+    if not query:return
+    encoded=urllib.parse.quote(query)
+    loading(f"Mencari: {query}")
+    results=[]
+    sources=[
+        ("LiteAPK",f"https://liteapks.com/?s={encoded}"),
+        ("APKPure",f"https://apkpure.net/search?q={encoded}"),
+        ("GetMods",f"https://getmodsapk.com/?s={encoded}"),
+        ("Moddroid",f"https://moddroid.com/?s={encoded}"),
+        ("HappyMod",f"https://happymod.com/search.html?q={encoded}"),
+        ("RevDL",f"https://www.revdl.com/?s={encoded}"),
+    ]
+    for name,url in sources:print(f"    {C}[+]{N} {W}{name}{N}: {C}{url}{N}")
+    print(f"\n    {Y}[?]{N} {W}Buka sumber? (1-{len(sources)}){N}: ",end='')
+    ch=input().strip()
+    if ch.isdigit()and 0<int(ch)<=len(sources):open_link(sources[int(ch)-1][1])
+    press_enter()
+def admin_finder():
+    banner("ADMIN FINDER")
+    domain=input_prompt("Domain (example.com)")
+    if not domain:return
+    domain=domain.replace('https://','').replace('http://','').rstrip('/')
+    paths=['/admin','/wp-admin','/login','/panel','/cpanel','/dashboard','/administrator','/phpmyadmin','/webmail','/admin/login','/user/login','/wp-login.php','/admin.php','/controlpanel','/manager/html','/jenkins','/api/admin','/backend']
+    loading(f"Scanning {domain}")
+    print()
+    found=[]
+    for proto in ['https','http']:
+        for p in paths:
+            url=f"{proto}://{domain}{p}"
+            try:
+                req=urllib.request.Request(url,headers={'User-Agent':random.choice(UA)})
+                resp=urllib.request.urlopen(req,timeout=8)
+                if resp.status==200:print(f"    {G}[FOUND]{N} {C}{url}{N}");found.append(url)
+                else:print(f"    {R}[{resp.status}]{N} {url}")
+            except:print(f"    {R}[ERR]{N} {url}")
+    if found:
+        print(f"\n    {G}[+] {len(found)} admin panels found{N}")
+        for i,u in enumerate(found):print(f"    {C}{i+1}.{N} {u}")
+        ch=input_prompt("Open (number/0)")
+        if ch.isdigit()and 0<int(ch)<=len(found):open_link(found[int(ch)-1])
+    else:print(f"\n    {R}[-]{N} No admin panels found")
+    press_enter()
+def hash_cracker():
+    banner("HASH CRACKER");hv=input_prompt("Hash")
+    if not hv:return
+    ht=input_prompt("Type").strip().lower()or'auto'
+    if ht=='auto':ht='md5'if len(hv)==32 else'sha1'if len(hv)==40 else'sha256'if len(hv)==64 else'md5'
+    wl=['password','123456','qwerty','abc123','admin','welcome','login','passw0rd','111111','222222','333333','000000','letmein','monkey','dragon','master','secret','iloveyou','password123','admin123','root123','toor','r00t']
+    loading(f"Crack {ht}");hf={'md5':hashlib.md5,'sha1':hashlib.sha1,'sha256':hashlib.sha256};func=hf.get(ht)
+    if func:
+        for w in wl:
+            if func(w.encode()).hexdigest()==hv.lower():print(f"\n    {G}[+] {Y}{w}{N}");press_enter();return
+    print(f"\n    {R}[-] Not found{N}");press_enter()
+def dizx_download_tool():
+    banner("DOWNLOAD TOOL")
+    cats=list(TOOLS_DB.keys())
+    for i,cat in enumerate(cats):print(f"    {C}{i+1:>2}.{N} {W}{cat}{N}")
+    print(f"    {R}[0]{N} Back");ch=input_prompt("Kategori")
+    if ch=='0':return
+    try:
+        idx=int(ch)-1
+        if 0<=idx<len(cats):
+            cat=cats[idx];tools=TOOLS_DB[cat];banner(f"DOWNLOAD: {cat}")
+            items=list(tools.items())
+            for i,(tool,info) in enumerate(items):
+                s=f"{G}[+]{N}" if check_tool(tool) else f"{Y}[X]{N}"
+                print(f"    {C}{i+1:>2}.{N} {W}{tool:<20}{N} {s}")
+            print(f"\n    {C}[A]{N} ALL | {R}[0]{N} Back");ch2=input_prompt("Pilih")
+            if ch2=='0':return
+            if ch2.upper()=='A':
+                loading(f"Installing {cat}")
+                for tool,info in tools.items():
+                    if info.get('pkg'):run_cmd(f"pkg install {info['pkg']} -y")
+                    elif info.get('git'):
+                        tdir=os.path.expanduser(f"~/{tool}")
+                        if not os.path.exists(tdir):run_cmd(f"cd ~ && git clone --depth=1 {info['git']} {tool}")
+                print(f"\n    {G}[+] Done!{N}")
+            else:
+                try:idx2=int(ch2)-1
+                except:return
+                if 0<=idx2<len(items):
+                    tool,info=items[idx2];loading(f"Installing {tool}")
+                    if info.get('pkg'):run_cmd(f"pkg install {info['pkg']} -y")
+                    elif info.get('git'):
+                        tdir=os.path.expanduser(f"~/{tool}")
+                        if not os.path.exists(tdir):run_cmd(f"cd ~ && git clone --depth=1 {info['git']} {tool}")
+                    print(f"\n    {G}[+] {tool} installed!{N}")
+            press_enter()
+    except:pass
+def dizx_show_tools():
+    banner("DIZX AI ARSENAL");total=0;installed=0
+    for cat,tools in TOOLS_DB.items():
+        print(f"\n{R}    --- {cat} {'-'*(40-len(cat))}{N}")
+        for tool in tools:
+            total+=1
+            if check_tool(tool):print(f"    {G}[+]{N} {W}{tool}{N}");installed+=1
+            else:print(f"    {R}[X]{N} {W}{tool}{N}")
+    print(f"\n{R}    --- TOTAL {'-'*40}{N}");print(f"    {W}Installed: {G}{installed}{N}/{Y}{total}{N}")
+    press_enter()
+def dizx_install_all():
+    banner("INSTALL ALL")
+    if input_prompt("Install 80+ tools? (y/n)").lower()!='y':return
+    loading("Updating");run_cmd("pkg update -y && pkg upgrade -y")
+    run_cmd("pkg install python git curl wget -y");run_cmd("pip install requests -q")
+    loading("Core");run_cmd("pkg install nmap netcat-openbsd socat tcpdump dsniff arpspoof sqlmap nikto whatweb hydra john crunch hashcat medusa ncrack aircrack-ng reaver hcxtools pixiewps bully metasploit exploitdb whois ngrok -y")
+    loading("Cloning")
+    for cat,tools in TOOLS_DB.items():
+        for tool,info in tools.items():
+            if info.get('git'):
+                tdir=os.path.expanduser(f"~/{tool}")
+                if not os.path.exists(tdir):run_cmd(f"cd ~ && git clone --depth=1 {info['git']} {tool}")
+    print(f"\n    {G}[+] Done!{N}");press_enter()
+def dizx_quick_install():
+    banner("QUICK INSTALL")
+    run_cmd("pkg install nmap hydra sqlmap metasploit aircrack-ng john crunch netcat-openbsd tcpdump whois ngrok nikto whatweb -y")
+    print(f"\n    {G}[+] Done!{N}");press_enter()
+def dizx_run_tool():
+    banner("RUN TOOL");installed=[(tool,cat) for cat,tools in TOOLS_DB.items() for tool in tools if check_tool(tool)]
+    if not installed:print(f"\n    {R}[X]{N} No tools.");press_enter();return
+    for i,(tool,cat) in enumerate(installed):print(f"    {C}{i+1:>3}.{N} {W}{tool:<20}{N} {Y}[{cat}]{N}")
+    print(f"\n    {R}[0]{N} Back");ch=input_prompt("Select")
+    if ch=='0':return
+    try:
+        idx=int(ch)-1
+        if 0<=idx<len(installed):
+            tool,cat=installed[idx];banner(f"RUNNING: {tool}")
+            tdir=os.path.expanduser(f"~/{tool}")
+            if os.path.isdir(tdir):run_cmd(f"cd {tdir} && bash {tool}.sh 2>/dev/null || python3 {tool}.py 2>/dev/null")
+            else:run_cmd(tool)
+            press_enter()
+    except:pass
+def main_menu():
+    while True:
+        banner("MAIN MENU")
+        menu=[
+            ("1","DIZX AI AGENT","AI"),("2","OSINT GOOGLE","Search"),("3","PHONE TRACKER","Lacak"),
+            ("4","OSINT NAME (50+)","Platform scan"),("5","EMAIL BREACH","HIBP"),
+            ("6","DDoS ATTACK (300+)","12 kategori"),("7","ADMIN FINDER","Cari panel admin"),
+            ("8","DOWNLOAD TOOLS","Pilih install"),("9","DIZX AI ARSENAL","80+ tools"),
+            ("10","INSTALL ALL","~5GB"),("11","QUICK INSTALL","Essential"),
+            ("12","RUN TOOL","Launch"),("13","PUBLIC RADIO","Worldwide"),
+            ("14","DARK STORE","APK Search"),("15","HASH CRACKER","MD5/SHA"),
+            ("0","EXIT","")
+        ]
+        for num,name,desc in menu:
+            c=R if num=='0' else C;print(f"    {c}[{num:>2}]{N} {W}{name:<22}{N} {Y}{desc}{N}")
+        print(f"\n    {W}{'-'*55}{N}");ch=input(f"    {R}DIZX{R} > {W}").strip()
+        if ch=="0":
+            clear()
+            logo_file=f"{PREFIX}/share/anonymous/ascii_art_color.txt"
+            if os.path.exists(logo_file):
+                art=open(logo_file).read().splitlines()
+                for i,l in enumerate(art):
+                    c="\033[1;31m" if i<len(art)//2 else "\033[1;37m"
+                    o="".join(c+ch if ch!=" " else " " for ch in l)
+                    print(f"    {o}\033[0m")
+            sys.exit(0)
         elif ch=='1':dizx_ai()
         elif ch=='2':osint_google()
         elif ch=='3':phone_tracker()
@@ -358,8 +548,14 @@ def ddos_attack():
         elif ch=='14':dark_store()
         elif ch=='15':hash_cracker()
 if __name__=='__main__':
-    try:main_menu()
+    try:token_auth();main_menu()
     except KeyboardInterrupt:
-        show_main_display()
-        print(f"\n    {G}[+]{N} Goodbye.\n")
+        clear()
+        logo_file=f"{PREFIX}/share/anonymous/ascii_art_color.txt"
+        if os.path.exists(logo_file):
+            art=open(logo_file).read().splitlines()
+            for i,l in enumerate(art):
+                c='\033[1;31m' if i<len(art)//2 else '\033[1;37m'
+                o=''.join(c+ch if ch!=' ' else ' ' for ch in l)
+                print(f"    {o}\033[0m")
         sys.exit(0)
