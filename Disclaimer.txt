@@ -1,0 +1,41 @@
+╔═══════════════════════════════════════════════════════════════════════════════╗
+║                            PERINGATAN PENTING                                  ║
+╠═══════════════════════════════════════════════════════════════════════════════╣
+║                                                                               ║
+║  1.  Tools ini dibuat untuk EDUKASI dan PENELITIAN KEAMANAN saja             ║
+║                                                                               ║
+║  2.  Segala bentuk PENYALAHGUNAAN tools ini untuk aksi ilegal seperti:       ║
+║      - Peretasan tanpa izin                                                   ║
+║      - Pencurian data pribadi                                                 ║
+║      - DDoS attack ke server orang lain                                       ║
+║      - Phishing atau social engineering                                       ║
+║      - Pelanggaran privasi orang lain                                         ║
+║                                                                               ║
+║      adalah TANGGUNG JAWAB USER sepenuhnya.                                   ║
+║                                                                               ║
+║  3.  Developer (dizofficial) TIDAK BERTANGGUNG JAWAB atas:                   ║
+║      - Kerugian materiil maupun immateriil                                    ║
+║      - Tuntutan hukum dari pihak ketiga                                       ║
+║      - Kerusakan sistem target maupun sistem sendiri                          ║
+║                                                                               ║
+║  4.  HUKUM INDONESIA mengatur tindak pidana siber dalam:                     ║
+║      - UU ITE No. 11 Tahun 2008 jo. UU No. 19 Tahun 2016                     ║
+║      - Pasal 30-37 tentang akses ilegal dan perubahan data                   ║
+║      - Ancaman pidana 6-12 tahun penjara + denda miliaran rupiah             ║
+║                                                                               ║
+║  5.  Sebelum menggunakan tools ini, pastikan:                                ║
+║      [✓] Memiliki izin tertulis dari pemilik target                          ║
+║      [✓] Menggunakan di lingkungan LAB SENDIRI                                ║
+║      [✓] Bertujuan untuk MENGAMANKAN bukan MERUSAK                           ║
+║                                                                               ║
+║  6.  Dengan menggunakan tools ini, Anda MENYATAKAN SETUJU bahwa:             ║
+║      - Anda bertanggung jawab penuh atas tindakan Anda                        ║
+║      - Developer tidak akan dituntut dalam kondisi apapun                     ║
+║      - Penggunaan di luar ketentuan adalah ILEGAL                             ║
+║                                                                               ║
+╠═══════════════════════════════════════════════════════════════════════════════╣
+║                                                                               ║
+║                       GUNAKAN DENGAN BIJAK                                    ║
+║                "Dengan kuasa besar, datang tanggung jawab besar"              ║
+║                                                                               ║
+╚═══════════════════════════════════════════════════════════════════════════════╝

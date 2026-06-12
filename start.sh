@@ -36,14 +36,16 @@ read
 clear
 echo ""
 echo ""
-echo -e "    ${R}WARNING${N}"
+echo -e "    ${R}╔══════════════════════════════════════════════════╗${N}"
+echo -e "    ${R}║${N}              ${Y}PERINGATAN PENTING${N}                   ${R}║${N}"
+echo -e "    ${R}╚══════════════════════════════════════════════════╝${N}"
 echo ""
 echo -e "    ${Y}SAYA MENCIPTAKAN TOOLS${N}"
 echo -e "    ${W}ANONYMOUS_TOOLS V18.0${N}"
 echo ""
 echo -e "    ${R}JANGAN DISALAHGUNAKAN!${N}"
-echo -e "    ${Y}SEGALA PERBUATAN DAN ANCAMAN${N}"
-echo -e "    ${Y}DI MASA DEPAN ADALAH${N}"
+echo -e "    ${Y}Segala perbuatan & akibat${N}"
+echo -e "    ${Y}di masa depan adalah${N}"
 echo -e "    ${R}TANGGUNG JAWAB ANDA SENDIRI!${N}"
 echo ""
 echo -e "    ${R}┌────────────────────────────────────────────────┐${N}"
@@ -52,6 +54,15 @@ echo -e "    ${R}│${N}  ${R}DO NOT ABUSE${N} this tool!                  ${R}�
 echo -e "    ${R}│${N}  ${Y}All consequences are${N}                     ${R}│${N}"
 echo -e "    ${R}│${N}  ${R}YOUR OWN RESPONSIBILITY!${N}                 ${R}│${N}"
 echo -e "    ${R}└────────────────────────────────────────────────┘${N}"
+echo ""
+echo -e "    ${Y}UU ITE No.11/2008:${N} ${R}6-12 tahun penjara${N}"
+echo ""
+echo -ne "    ${G}[ ENTER ]${N} untuk melanjutkan..."
+read
+
+# === DISCLAIMER ===
+clear
+cat Disclaimer.txt
 echo ""
 echo -ne "    ${G}[ ENTER ]${N} untuk melanjutkan..."
 read
