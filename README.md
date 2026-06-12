@@ -5,6 +5,11 @@
 
 [![TikTok](https://img.shields.io/badge/TikTok-%40__dizofficial-ff0050?style=for-the-badge&logo=tiktok&logoColor=white)](https://tiktok.com/@_dizofficial)
 [![Python](https://img.shields.io/badge/Python-3.8%2B-blue?style=for-the-badge&logo=python&logoColor=white)](https://python.org)
+[![Linux](https://img.shields.io/badge/Linux-Supported-orange?style=for-the-badge&logo=linux&logoColor=black)](https://github.com/DIZ-X-DarkWeb/Anonymous-tools)
+[![Termux](https://img.shields.io/badge/Termux-Android-green?style=for-the-badge&logo=android&logoColor=white)](https://github.com/DIZ-X-DarkWeb/Anonymous-tools)
+[![Windows](https://img.shields.io/badge/Windows-10%2B-blue?style=for-the-badge&logo=windows&logoColor=white)](https://github.com/DIZ-X-DarkWeb/Anonymous-tools)
+[![Kali](https://img.shields.io/badge/Kali-Linux-purple?style=for-the-badge&logo=kalilinux&logoColor=white)](https://github.com/DIZ-X-DarkWeb/Anonymous-tools)
+[![Ubuntu](https://img.shields.io/badge/Ubuntu-Debian-orange?style=for-the-badge&logo=ubuntu&logoColor=white)](https://github.com/DIZ-X-DarkWeb/Anonymous-tools)
 [![Version](https://img.shields.io/badge/Version-18.0-red?style=for-the-badge)](https://github.com/DIZ-X-DarkWeb/Anonymous-tools)
 [![License](https://img.shields.io/badge/License-MIT-yellow?style=for-the-badge)](https://github.com/DIZ-X-DarkWeb/Anonymous-tools)
 
