@@ -7,7 +7,7 @@ C='\033[1;36m'
 W='\033[1;37m'
 N='\033[0m'
 
-PASS_HASH="884b4c4e8737a99d2fafe1a9386d9706ebfcd16e3e6b2cd15391576de73d2707"
+PASS_HASH="64cadc78aad2c971a75e299d296461d332c51beb90c600cfb62c453a5a19b674"
 echo -e "    ${R}┌──────────────────────┐${N}"
 echo -ne "    ${R}│${W}  password: ${N}"
 read pwd
