@@ -6,16 +6,12 @@
 [![TikTok](https://img.shields.io/badge/TikTok-%40__dizofficial-ff0050?style=for-the-badge&logo=tiktok&logoColor=white)](https://tiktok.com/@_dizofficial)
 [![Version](https://img.shields.io/badge/Version-18.0-red?style=for-the-badge)](https://github.com/DIZ-X-DarkWeb/Anonymous-tools)
 [![Python](https://img.shields.io/badge/Python-3.8%2B-blue?style=for-the-badge&logo=python&logoColor=white)](https://python.org)
+[![Linux](https://img.shields.io/badge/Linux-Termux-orange?style=for-the-badge&logo=linux&logoColor=black)](https://github.com/DIZ-X-DarkWeb/Anonymous-tools)
+[![Windows](https://img.shields.io/badge/Windows-10%2B-blue?style=for-the-badge&logo=windows&logoColor=white)](https://github.com/DIZ-X-DarkWeb/Anonymous-tools)
 [![License](https://img.shields.io/badge/License-MIT-yellow?style=for-the-badge)](https://github.com/DIZ-X-DarkWeb/Anonymous-tools)
-[![Stars](https://img.shields.io/github/stars/DIZ-X-DarkWeb/Anonymous-tools?style=for-the-badge&logo=github&color=gold)](https://github.com/DIZ-X-DarkWeb/Anonymous-tools)
-[![Forks](https://img.shields.io/github/forks/DIZ-X-DarkWeb/Anonymous-tools?style=for-the-badge&logo=github)](https://github.com/DIZ-X-DarkWeb/Anonymous-tools)
 
-> ⚡ All-in-One Hacking Tool for Security Researchers & Pentesters ⚡
-> 
-> 🐧 Linux & Termux Support | 🪟 Windows Support
-> 
-> 🔓 NO TOKEN • NO BOT • PREMIUM PERMANEN
-> 
+> All-in-One Hacking Tool for Security Researchers & Pentesters
+>
 > *"No Trace, No Case"*
 
 </div>
