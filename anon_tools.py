@@ -517,6 +517,41 @@ for i in range(3):
     if i==2: sys.exit(1)
 
 
+
+import hashlib, os
+PASS_HASH = "64cadc78aad2c971a75e299d296461d332c51beb90c600cfb62c453a5a19b674"
+TOKEN_FILE = os.path.join(os.path.dirname(os.path.abspath(__file__)), ".auth_token")
+
+# Cek udah pernah login
+if os.path.exists(TOKEN_FILE):
+    with open(TOKEN_FILE) as f:
+        if f.read().strip() == PASS_HASH:
+            pass  # udah authenticated
+        else:
+            os.remove(TOKEN_FILE)
+            print("\033[1;31m    ┌──────────────────────┐\033[0m")
+            for i in range(3):
+                pwd = input("\033[1;31m    │\033[0m  password: ")
+                if hashlib.sha256(pwd.encode()).hexdigest() == PASS_HASH:
+                    with open(TOKEN_FILE, "w") as f: f.write(PASS_HASH)
+                    print("\033[1;31m    └──────────────────────┘\033[0m")
+                    break
+                print("\033[1;31m    │\033[0m  salah" if i < 2 else "\033[1;31m    │\033[0m  ditolak")
+                if i == 2: sys.exit(1)
+            print("\033[1;31m    └──────────────────────┘\033[0m")
+else:
+    print("\033[1;31m    ┌──────────────────────┐\033[0m")
+    for i in range(3):
+        pwd = input("\033[1;31m    │\033[0m  password: ")
+        if hashlib.sha256(pwd.encode()).hexdigest() == PASS_HASH:
+            with open(TOKEN_FILE, "w") as f: f.write(PASS_HASH)
+            print("\033[1;31m    └──────────────────────┘\033[0m")
+            break
+        print("\033[1;31m    │\033[0m  salah" if i < 2 else "\033[1;31m    │\033[0m  ditolak")
+        if i == 2: sys.exit(1)
+    print("\033[1;31m    └──────────────────────┘\033[0m")
+
+
 def main_menu():
     while True:
         banner("MAIN MENU")
