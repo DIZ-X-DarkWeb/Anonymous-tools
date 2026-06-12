@@ -62,7 +62,23 @@ read
 
 # === DISCLAIMER ===
 clear
-cat Disclaimer.txt
+echo ""
+echo -e "    ${R}╔══════════════════════════════════════════════════╗${N}"
+echo -e "    ${R}║${N}              ${Y}PERINGATAN PENTING${N}                   ${R}║${N}"
+echo -e "    ${R}╚══════════════════════════════════════════════════╝${N}"
+echo ""
+echo -e "    ${Y}1.${N} Tools untuk ${W}EDUKASI${N} & ${W}PENELITIAN${N}"
+echo -e "    ${Y}2.${N} ${R}PENYALAHGUNAAN${N} tanggung jawab user"
+echo -e "    ${Y}3.${N} Developer ${R}TIDAK${N} bertanggung jawab"
+echo -e "    ${Y}4.${N} UU ITE: ${R}6-12 tahun${N} penjara"
+echo -e "    ${Y}5.${N} Gunakan di ${W}LAB SENDIRI${N}"
+echo ""
+echo -e "    ${R}┌────────────────────────────────────────────────┐${N}"
+echo -e "    ${R}│${N}  ${Y}I created ${W}ANONYMOUS_TOOLS v18.0${N}            ${R}│${N}"
+echo -e "    ${R}│${N}  ${R}DO NOT ABUSE${N} this tool!                  ${R}│${N}"
+echo -e "    ${R}│${N}  ${Y}All consequences are${N}                     ${R}│${N}"
+echo -e "    ${R}│${N}  ${R}YOUR OWN RESPONSIBILITY!${N}                 ${R}│${N}"
+echo -e "    ${R}└────────────────────────────────────────────────┘${N}"
 echo ""
 echo -ne "    ${G}[ ENTER ]${N} untuk melanjutkan..."
 read
