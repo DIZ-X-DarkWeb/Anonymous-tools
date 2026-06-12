@@ -1,5 +1,4 @@
 #!/bin/bash
-clear
 PASS_HASH="884b4c4e8737a99d2fafe1a9386d9706ebfcd16e3e6b2cd15391576de73d2707"
 echo -ne "    ${W}password${N}: "
 read -s pwd
