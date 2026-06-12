@@ -608,4 +608,11 @@ if __name__=="__main__":
     try:main_menu()
     except KeyboardInterrupt:
         clear()
+        logo_file=f"{PREFIX}/share/anonymous/ascii_art_color.txt"
+        if os.path.exists(logo_file):
+            art=open(logo_file).read().splitlines()
+            for i,l in enumerate(art):
+                c='\033[1;31m' if i<len(art)//2 else '\033[1;37m'
+                o=''.join(c+ch if ch!=' ' else ' ' for ch in l)
+                print(f"    {o}\033[0m")
         sys.exit(0)
