@@ -558,15 +558,6 @@ def main_menu():
                 o=''.join(c+ch if ch!=' ' else ' ' for ch in l)
                 print(f"    {o}\033[0m")
         sys.exit(0)
-import hashlib
-PASS_HASH="64cadc78aad2c971a75e299d296461d332c51beb90c600cfb62c453a5a19b674"
-for i in range(3):
-    pwd=input("password: ")
-    if hashlib.sha256(pwd.encode()).hexdigest()==PASS_HASH:
-        break
-    print("salah" if i<2 else "ditolak")
-    if i==2: sys.exit(1)
-
 if __name__=="__main__":
     try:main_menu()
     except KeyboardInterrupt:
