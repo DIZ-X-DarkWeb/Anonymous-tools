@@ -547,7 +547,6 @@ def main_menu():
         elif ch=='13':public_radio()
         elif ch=='14':dark_store()
         elif ch=='15':hash_cracker()
-if __name__=='__main__':
     try:token_auth();main_menu()
     except KeyboardInterrupt:
         clear()
