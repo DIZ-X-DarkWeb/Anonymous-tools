@@ -41,10 +41,10 @@
 
 | Step | Action |
 |:---:|--------|
-| 1 | Clone repo dari GitHub |
+| 1 | Clone repo & masuk folder |
 | 2 | Jalankan `bash setup.sh` |
 | 3 | Jalankan `python anon_tools.py` |
-| 4 | Langsung masuk menu 1-15 |
+| 4 | Langsung masuk 15 fitur menu |
 
 ---
 
@@ -63,7 +63,7 @@
 | 9 | 🏪 DIZX ARSENAL | Cek status tools |
 | 10 | 📦 INSTALL ALL | Install semua tools (~5GB) |
 | 11 | ⚡ QUICK INSTALL | 13 essential tools |
-| 12 | ▶️ RUN TOOL | Jalankan tools |
+| 12 | ▶️ RUN TOOL | Jalankan tools terinstall |
 | 13 | 📻 PUBLIC RADIO | 12 negara, 60+ station |
 | 14 | 🛒 DARK STORE | APK mod 6 sumber |
 | 15 | 🔐 HASH CRACKER | Crack MD5/SHA1/SHA256 |
