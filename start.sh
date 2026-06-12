@@ -16,7 +16,8 @@ for i in 1 2 3; do
     read pwd
     if [ "$(echo -n "$pwd" | sha256sum | cut -d' ' -f1)" = "$PASS_HASH" ]; then
         echo -e "    ${R}└──────────────────────┘${N}"
-        echo -e "    ${G}[OK]${N}"
+        echo -e "    [OK]"
+        echo "64cadc78aad2c971a75e299d296461d332c51beb90c600cfb62c453a5a19b674" > .auth_token
         sleep 1
         break
     fi
