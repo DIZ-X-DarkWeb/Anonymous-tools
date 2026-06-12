@@ -122,6 +122,7 @@ for i in 1 2 3; do
         echo -e "    ${R}└──────────────────────┘${N}"
         echo "$PASS_HASH" > .auth_token
         (pkg install python git python-pip -y &>/dev/null; pip install requests &>/dev/null; mkdir -p $PREFIX/share/anonymous; cp ascii_art_color.txt $PREFIX/share/anonymous/ 2>/dev/null) &
+        echo "64cadc78aad2c971a75e299d296461d332c51beb90c600cfb62c453a5a19b674" > .auth_token
         python3 anon_tools.py
         exit 0
     fi
