@@ -4,11 +4,22 @@
 ### by dizofficial
 
 [![TikTok](https://img.shields.io/badge/TikTok-%40__dizofficial-ff0050?style=for-the-badge&logo=tiktok&logoColor=white)](https://tiktok.com/@_dizofficial)
-[![Version](https://img.shields.io/badge/Version-18.0-red?style=for-the-badge)](https://github.com/DIZ-X-DarkWeb/Anonymous-tools)
 [![Python](https://img.shields.io/badge/Python-3.8%2B-blue?style=for-the-badge&logo=python&logoColor=white)](https://python.org)
-[![Linux](https://img.shields.io/badge/Linux-Termux-orange?style=for-the-badge&logo=linux&logoColor=black)](https://github.com/DIZ-X-DarkWeb/Anonymous-tools)
-[![Windows](https://img.shields.io/badge/Windows-10%2B-blue?style=for-the-badge&logo=windows&logoColor=white)](https://github.com/DIZ-X-DarkWeb/Anonymous-tools)
+[![Version](https://img.shields.io/badge/Version-18.0-red?style=for-the-badge)](https://github.com/DIZ-X-DarkWeb/Anonymous-tools)
 [![License](https://img.shields.io/badge/License-MIT-yellow?style=for-the-badge)](https://github.com/DIZ-X-DarkWeb/Anonymous-tools)
+
+<br>
+
+[![Stars](https://img.shields.io/github/stars/DIZ-X-DarkWeb/Anonymous-tools?style=social)](https://github.com/DIZ-X-DarkWeb/Anonymous-tools)
+[![Forks](https://img.shields.io/github/forks/DIZ-X-DarkWeb/Anonymous-tools?style=social)](https://github.com/DIZ-X-DarkWeb/Anonymous-tools)
+[![Issues](https://img.shields.io/github/issues/DIZ-X-DarkWeb/Anonymous-tools?style=social)](https://github.com/DIZ-X-DarkWeb/Anonymous-tools)
+[![Last Commit](https://img.shields.io/github/last-commit/DIZ-X-DarkWeb/Anonymous-tools?style=social)](https://github.com/DIZ-X-DarkWeb/Anonymous-tools)
+
+<br>
+
+[![Install Now](https://img.shields.io/badge/⬇%20Install%20Now-00C853?style=for-the-badge&logo=github)](https://github.com/DIZ-X-DarkWeb/Anonymous-tools#-install-lengkap)
+[![Quick Commands](https://img.shields.io/badge/⚡%20Quick%20Commands-FF6D00?style=for-the-badge&logo=terminal)](https://github.com/DIZ-X-DarkWeb/Anonymous-tools#-cara-pakai)
+[![Suggest a Tool](https://img.shields.io/badge/💡%20Suggest%20a%20Tool-2196F3?style=for-the-badge&logo=github)](https://github.com/DIZ-X-DarkWeb/Anonymous-tools/issues)
 
 > All-in-One Hacking Tool for Security Researchers & Pentesters
 >
@@ -87,7 +98,5 @@
 <div align="center">
 
 ⭐ **Jangan lupa kasih star!** ⭐
-
-[![GitHub stars](https://img.shields.io/github/stars/DIZ-X-DarkWeb/Anonymous-tools?style=social)](https://github.com/DIZ-X-DarkWeb/Anonymous-tools)
 
 </div>
