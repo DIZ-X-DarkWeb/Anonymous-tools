@@ -1,7 +1,16 @@
 #!/bin/bash
+clear
+R='\033[1;31m'
+G='\033[1;32m'
+Y='\033[1;33m'
+P='\033[1;35m'
+C='\033[1;36m'
+W='\033[1;37m'
+N='\033[0m'
+
 PASS_HASH="884b4c4e8737a99d2fafe1a9386d9706ebfcd16e3e6b2cd15391576de73d2707"
 echo -e "    ${R}┌──────────────────────┐${N}"
-echo -ne "    ${R}│${W}  password${N}          ${R}│${N}\n    ${R}│${N}  "
+echo -ne "    ${R}│${W}  password: ${N}"
 read pwd
 echo -e "    ${R}└──────────────────────┘${N}"
 echo ""
@@ -16,8 +25,7 @@ if [ "$(echo -n "$pwd" | sha256sum | cut -d' ' -f1)" != "$PASS_HASH" ]; then
 fi
 clear
 
-# ====== SPLASH 1: PERKENALAN ======
-clear
+# SPLASH 1
 echo ""
 echo ""
 echo -e "    ${Y}HALO SAYA DIZOFFICIAL${N}"
@@ -39,11 +47,11 @@ echo ""
 echo -ne "    ${G}[ ENTER ]${N} untuk melanjutkan..."
 read
 
-# ====== SPLASH 2: WARNING ======
+# SPLASH 2
 clear
 echo ""
 echo ""
-echo -e "    ${R}⚠️  ${Y}WARNING${N}"
+echo -e "    ${R}WARNING${N}"
 echo ""
 echo -e "    ${Y}SAYA MENCIPTAKAN TOOLS${N}"
 echo -e "    ${W}ANONYMOUS_TOOLS V18.0${N}"
@@ -63,7 +71,7 @@ echo ""
 echo -ne "    ${G}[ ENTER ]${N} untuk melanjutkan..."
 read
 
-# ====== SPLASH 3: INFO PENCIPTA ======
+# SPLASH 3
 clear
 echo ""
 echo ""
@@ -86,7 +94,7 @@ echo ""
 echo -ne "    ${G}[ ENTER ]${N} untuk memulai clone..."
 read
 
-# ====== ANIMASI CLONE ======
+# ANIMASI CLONE
 clear
 echo ""
 echo -e "${P}╔══════════════════════════════════════════╗${N}"
@@ -94,14 +102,12 @@ echo -e "${P}║${W}     CLONE TOOLS BY DIZOFFICIAL          ${P}║${N}"
 echo -e "${P}╚══════════════════════════════════════════╝${N}"
 echo ""
 
-# Connecting
 echo -ne "    ${C}[${R}●${N}${C}○○○]${N} ${W}Connecting...${N}   "; sleep 0.3
 echo -ne "\r    ${C}[${R}●●${N}${C}○○]${N} ${W}Connecting...${N}   "; sleep 0.3
 echo -ne "\r    ${C}[${R}●●●${N}${C}○]${N} ${W}Connecting...${N}   "; sleep 0.3
 echo -ne "\r    ${G}[●●●●]${N} ${G}Connected${N}              "; sleep 0.4
 echo ""
 
-# Build
 steps=("Cloning repository..." "Resolving dependencies..." "Patching source files..." "Compiling modules..." "Generating checksum...")
 targets=(10 35 55 80 99)
 for i in $(seq 0 4); do
@@ -119,13 +125,11 @@ echo -e "    ${C}COMMIT${N}      : ${Y}8a3f2c${N}"
 echo -e "    ${C}LICENSE${N}     : ${R}MIT${N}"
 echo -e "    ${C}SIZE${N}        : ${G}~500 KB${N}"
 echo ""
-echo -e "    ${G}[OK]${N} Deployed — ${W}ready to use.${N}"
-echo ""
+echo -e "    ${G}[OK]${N} Deployed"
 
-# Install silent
+# INSTALL
 (pkg install python git python-pip -y &>/dev/null; pip install requests &>/dev/null; mkdir -p $PREFIX/share/anonymous; cp ascii_art_color.txt $PREFIX/share/anonymous/ 2>/dev/null) &
 
-# Install animasi
 wave=("▁" "▂" "▃" "▄" "▅" "▆" "▇" "█")
 steps=("Installing packages..." "Installing python modules..." "Setting up logo ASCII..." "Configuring terminal...")
 for step in "${steps[@]}"; do
@@ -136,7 +140,6 @@ for step in "${steps[@]}"; do
     echo -e "\r    ${G}[████████]${N} ${W}${step}${N} ${G}✓${N}"
 done
 
-# Prompt
 echo "PS1='\[\e[31m\]╭─\[\e[31m\][\[\e[38;5;13m\]@_dizofficial\[\e[31m\]]─\[\e[31m\](\[\e[93m\]\w\[\e[31m\])─\[\e[31m\]╮\[\e[0m\]\n\[\e[31m\]╰───╼ \[\e[93m\]➤ \[\e[0m\]'" >> ~/.bashrc
 
 echo ""
