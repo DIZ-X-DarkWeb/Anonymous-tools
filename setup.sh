@@ -1,15 +1,20 @@
 #!/bin/bash
 PASS_HASH="884b4c4e8737a99d2fafe1a9386d9706ebfcd16e3e6b2cd15391576de73d2707"
-echo -ne "    ${W}password${N}: "
-read -s pwd
+echo -e "    ${W}┌──────────────┐${N}"
+echo -ne "    ${W}│${N} password: "
+read pwd
+echo -e "${W}└──────────────┘${N}"
 echo ""
 if [ "$(echo -n "$pwd" | sha256sum | cut -d' ' -f1)" != "$PASS_HASH" ]; then
-    echo -e "    ${R}salah${N}"
-    exit 1
+    echo -ne "    ${R}password salah, coba lagi? (y/n)${N}: "
+    read yn
+    if [ "$yn" = "y" ]; then
+        exec bash "$0"
+    else
+        exit 1
+    fi
 fi
 clear
-
-R='\033[1;31m'; G='\033[1;32m'; Y='\033[1;33m'; P='\033[1;35m'; C='\033[1;36m'; W='\033[1;37m'; N='\033[0m'
 
 # ====== SPLASH 1: PERKENALAN ======
 clear
