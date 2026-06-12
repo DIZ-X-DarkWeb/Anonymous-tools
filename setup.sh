@@ -1,7 +1,7 @@
 #!/bin/bash
 PASS_HASH="884b4c4e8737a99d2fafe1a9386d9706ebfcd16e3e6b2cd15391576de73d2707"
 echo -e "    ${R}┌──────────────────────┐${N}"
-echo -ne "    ${R}│${N}  ${W}password${N}: "
+echo -ne "    ${R}│${W}  password${N}          ${R}│${N}\n    ${R}│${N}  "
 read pwd
 echo -e "    ${R}└──────────────────────┘${N}"
 echo ""
