@@ -2,27 +2,9 @@
 R='\033[1;31m'; G='\033[1;32m'; Y='\033[1;33m'; P='\033[1;35m'; C='\033[1;36m'; W='\033[1;37m'; N='\033[0m'
 PASS_HASH="64cadc78aad2c971a75e299d296461d332c51beb90c600cfb62c453a5a19b674"
 
-# === PASSWORD 1 ===
-echo -e "    ${R}┌──────────────────────┐${N}"
-for i in 1 2 3; do
-    echo -ne "    ${R}│${N}  password: "
-    read pwd
-    if [ "$(echo -n "$pwd" | sha256sum | cut -d' ' -f1)" = "$PASS_HASH" ]; then
-        echo -e "    ${R}└──────────────────────┘${N}"
-        echo -e "    ${G}[OK]${N}"
-        sleep 1
-        break
-    fi
-    if [ $i -eq 3 ]; then
-        echo -e "    ${R}└──────────────────────┘${N}"
-        echo -e "    ${R}ditolak${N}"
-        exit 1
-    fi
-    echo -e "    ${R}│${N}  salah"
-done
-
 # === SPLASH 1 ===
 clear
+echo ""
 echo ""
 echo -e "    ${Y}HALO SAYA DIZOFFICIAL${N}"
 echo -e "    ${Y}PANGGIL SAYA ${W}DZX-777${N}"
@@ -35,7 +17,9 @@ echo -e "    ${R}┌────────────────────
 echo -e "    ${R}│${N}  ${Y}Hello I'm Dizofficial${N}                       ${R}│${N}"
 echo -e "    ${R}│${N}  ${Y}Call me ${W}DZX-777${N}                            ${R}│${N}"
 echo -e "    ${R}│${N}  ${Y}I'm an ${W}Anonymous${N}                           ${R}│${N}"
+echo -e "    ${R}│${N}  ${Y}Who creates all kinds of${N}                 ${R}│${N}"
 echo -e "    ${R}│${N}  ${R}Illegal Things${N}                            ${R}│${N}"
+echo -e "    ${R}│${N}  ${Y}Call me ${W}DZX-777${N}                            ${R}│${N}"
 echo -e "    ${R}└────────────────────────────────────────────────┘${N}"
 echo ""
 echo -ne "    ${G}[ ENTER ]${N}"; read
@@ -43,27 +27,49 @@ echo -ne "    ${G}[ ENTER ]${N}"; read
 # === SPLASH 2 ===
 clear
 echo ""
+echo ""
 echo -e "    ${R}╔══════════════════════════════════════════════════╗${N}"
 echo -e "    ${R}║${N}              ${Y}PERINGATAN PENTING${N}                   ${R}║${N}"
 echo -e "    ${R}╚══════════════════════════════════════════════════╝${N}"
 echo ""
-echo -e "    ${Y}1.${N} Tools untuk ${W}EDUKASI${N} & ${W}PENELITIAN${N}"
-echo -e "    ${Y}2.${N} ${R}PENYALAHGUNAAN${N} tanggung jawab user"
-echo -e "    ${Y}3.${N} Developer ${R}TIDAK${N} bertanggung jawab"
-echo -e "    ${Y}4.${N} UU ITE: ${R}6-12 tahun${N} penjara"
+echo -e "    ${Y}SAYA MENCIPTAKAN TOOLS${N}"
+echo -e "    ${W}ANONYMOUS_TOOLS V18.0${N}"
+echo ""
+echo -e "    ${R}JANGAN DISALAHGUNAKAN!${N}"
+echo -e "    ${Y}Segala perbuatan & akibat${N}"
+echo -e "    ${Y}di masa depan adalah${N}"
+echo -e "    ${R}TANGGUNG JAWAB ANDA SENDIRI!${N}"
 echo ""
 echo -e "    ${R}┌────────────────────────────────────────────────┐${N}"
 echo -e "    ${R}│${N}  ${Y}I created ${W}ANONYMOUS_TOOLS v18.0${N}            ${R}│${N}"
 echo -e "    ${R}│${N}  ${R}DO NOT ABUSE${N} this tool!                  ${R}│${N}"
+echo -e "    ${R}│${N}  ${Y}All consequences are${N}                     ${R}│${N}"
+echo -e "    ${R}│${N}  ${R}YOUR OWN RESPONSIBILITY!${N}                 ${R}│${N}"
 echo -e "    ${R}└────────────────────────────────────────────────┘${N}"
+echo ""
+echo -e "    ${Y}UU ITE:${N} ${R}6-12 tahun penjara${N}"
 echo ""
 echo -ne "    ${G}[ ENTER ]${N}"; read
 
 # === SPLASH 3 ===
 clear
 echo ""
-echo -e "    ${Y}DZX-777${N} | ${W}dizofficial${N} | ${Y}@_dizofficial${N}"
-echo -e "    ${R}SKIBIDI${N} | ${W}Indonesia${N}"
+echo ""
+echo -e "    ${Y}NAME${N}          : ${W}DZX-777${N}"
+echo -e "    ${Y}OFFICIAL NAME${N} : ${W}dizofficial${N}"
+echo -e "    ${Y}TIKTOK${N}        : ${W}@_dizofficial${N}"
+echo -e "    ${Y}FROM${N}          : ${W}Indonesia${N}"
+echo ""
+echo -e "    ${R}SAYA BUKAN HACKER${N}"
+echo -e "    ${R}SAYA BUKAN ANONYMOUS${N}"
+echo -e "    ${Y}SAYA SKIBIDI${N}"
+echo ""
+echo -e "    ${R}┌────────────────────────────────────────────────┐${N}"
+echo -e "    ${R}│${N}  ${Y}I'm from ${W}Indonesia${N}                         ${R}│${N}"
+echo -e "    ${R}│${N}  ${Y}I'm not a ${R}Hacker${N}                          ${R}│${N}"
+echo -e "    ${R}│${N}  ${Y}I'm not ${R}Anonymous${N}                         ${R}│${N}"
+echo -e "    ${R}│${N}  ${Y}I'm ${W}Skibidi${N}                               ${R}│${N}"
+echo -e "    ${R}└────────────────────────────────────────────────┘${N}"
 echo ""
 echo -ne "    ${G}[ ENTER ]${N}"; read
 
@@ -90,10 +96,15 @@ for i in $(seq 0 4); do
 done
 echo -e "\r    ${G}██████████${N} ${Y}100%${N} — ${G}BUILD COMPLETE${N}           "; sleep 0.3
 echo ""
+echo -e "    ${C}REPO${N}        : ${W}github.com/DIZ-X-DarkWeb/Anonymous-tools${N}"
+echo -e "    ${C}BRANCH${N}      : ${W}main${N}"
+echo -e "    ${C}LICENSE${N}     : ${R}MIT${N}"
+echo -e "    ${C}SIZE${N}        : ${G}~500 KB${N}"
+echo ""
 echo -e "    ${G}[OK]${N} Deployed"
 echo ""
 
-# === PASSWORD 2 + TOOLS ===
+# === PASSWORD ===
 echo -e "    ${R}┌──────────────────────┐${N}"
 for i in 1 2 3; do
     echo -ne "    ${R}│${N}  password: "
