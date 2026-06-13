@@ -1,7 +1,5 @@
 <div align="center">
 
-<img src="https://files.catbox.moe/o64ev0.jpg" width="600">
-
 <img src="https://files.catbox.moe/tfks3p.jpg" width="600">
 
 # 🔥 ANONYMOUS TOOLS v18.0
