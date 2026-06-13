@@ -42,7 +42,7 @@
 
 | 🚪 Tampilan Awal | 🏠 Tampilan Menu Utama |
 |:---:|:---:|
-| ![Login](https://files.catbox.moe/tfks3p.jpg) | ![Menu](https://files.catbox.moe/rylhqs.jpg) |
+| ![Login](https://files.catbox.moe/pjn4m4.jpg) | ![Menu](https://files.catbox.moe/rylhqs.jpg) |
 
 </div>
 
