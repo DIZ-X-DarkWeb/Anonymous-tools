@@ -34,13 +34,17 @@
 
 ---
 
+## 🎥 DEMO TOOLS
+
+![Demo](https://files.catbox.moe/t0ow9t.gif)
+
 ## 📸 TAMPILAN TOOLS
 
 <div align="center">
 
 | 🚪 Tampilan Awal | 🏠 Tampilan Menu Utama |
 |:---:|:---:|
-| ![Login](https://files.catbox.moe/o64ev0.jpg) | ![Menu](https://files.catbox.moe/rylhqs.jpg) |
+| ![Login](https://files.catbox.moe/tfks3p.jpg) | ![Menu](https://files.catbox.moe/rylhqs.jpg) |
 
 </div>
 
