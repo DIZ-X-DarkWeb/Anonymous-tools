@@ -107,9 +107,11 @@
 ⭐ **Jangan lupa kasih star!** ⭐
 
 </div>## 📁 STRUKTUR FILES LENGKAP
+
+```text
 Anonymous-tools/
 │
-├── anon_tools.py              # Main program (15 fitur hacking)
+├── anon_tools.py              # Main program (15 fitur)
 │   ├── DIZX AI AGENT           # AI tanpa batasan
 │   ├── OSINT GOOGLE            # Search aggregator
 │   ├── PHONE TRACKER           # 50+ prefix Indonesia
@@ -126,20 +128,12 @@ Anonymous-tools/
 │   ├── DARK STORE              # APK mod 6 sumber
 │   └── HASH CRACKER            # MD5/SHA1/SHA256
 │
-├── start.sh                   # Auto installer lengkap
-│   ├── Password check (SHA256)
-│   ├── Splash screen 1 (perkenalan)
-│   ├── Splash screen 2 (warning + UU ITE)
-│   ├── Splash screen 3 (info pencipta)
-│   ├── Animasi clone
-│   └── Auto-run tools
-│
-├── setup.sh                   # Manual installer + animasi proses
-├── ascii_art_color.txt        # Logo ASCII DZX-777 (merah-putih)
-├── dizx_prompt.txt            # System prompt untuk DIZX AI Agent
-├── Disclaimer.txt             # Peringatan lengkap & ketentuan
+├── start.sh                   # Auto installer + splash + password
+├── setup.sh                   # Manual installer + animasi
+├── ascii_art_color.txt        # Logo ASCII DZX-777
+├── dizx_prompt.txt            # System prompt AI Agent
+├── Disclaimer.txt             # Peringatan & ketentuan
 ├── requirements.txt           # Python dependencies
-├── README.md                  # Dokumentasi lengkap
+├── README.md                  # Dokumentasi
 └── .gitignore                 # Git ignore rules
-
 ```
