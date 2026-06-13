@@ -1,7 +1,11 @@
 <div align="center">
 
+<img src="https://files.catbox.moe/o64ev0.jpg" width="600">
+
 # 🔥 ANONYMOUS TOOLS v18.0
 ### by dizofficial
+
+![Demo](https://files.catbox.moe/t0ow9t.gif)
 
 [![TikTok](https://img.shields.io/badge/TikTok-%40__dizofficial-ff0050?style=for-the-badge&logo=tiktok&logoColor=white)](https://tiktok.com/@_dizofficial)
 [![Python](https://img.shields.io/badge/Python-3.8%2B-blue?style=for-the-badge&logo=python&logoColor=white)](https://python.org)
@@ -33,10 +37,6 @@
 </div>
 
 ---
-
-## 🎥 DEMO TOOLS
-
-![Demo](https://files.catbox.moe/t0ow9t.gif)
 
 ## 📸 TAMPILAN TOOLS
 
