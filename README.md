@@ -77,7 +77,7 @@
 | # | FITUR | DESKRIPSI | STATUS | CATATAN |
 |:---:|-------|-----------|:---:|---------|
 | 1 | DIZX AI AGENT | AI tanpa batasan | WORK | Butuh API Key OpenRouter. Ganti `K="API_AI_LO"` di `anon_tools.py` baris 10 |
-| 2 | OSINT GOOGLE | Search aggregator | WORK | Buka hasil di browser |
+| 2 | OSINT GOOGLE | Search aggregator | WORK | Hasil kadang muncul di terminal, kadang harus buka di browser |
 | 3 | PHONE TRACKER | 50+ prefix Indonesia | WORK | IP & koordinat dari IP publik user, **bukan** lokasi asli pemilik nomor |
 | 4 | OSINT NAME | 50+ platform | WORK | Cek username di berbagai platform |
 | 5 | EMAIL BREACH | Cek kebocoran via HIBP | WORK | Butuh koneksi internet |
