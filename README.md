@@ -79,16 +79,16 @@
 | 1 | 🧠 DIZX AI AGENT | AI tanpa batasan, filter, moral |
 | 2 | 🔍 OSINT GOOGLE | Search aggregator duckduckgo + google |
 | 3 | 📱 PHONE TRACKER | 50+ prefix indonesia + IP tracking |
-| 4 | 👤 OSINT NAME | 2000+ platform asli |
+| 4 | 👤 OSINT NAME | 50+ platform |
 | 5 | 📧 EMAIL BREACH | Cek kebocoran data via HIBP |
-| 6 | 💣 DDoS ATTACK | 300+ types, 12 kategori |
-| 7 | 🔑 ADMIN FINDER | 200+ path admin |
+| 6 | 💣 DDoS ATTACK | 12 kategori |
+| 7 | 🔑 ADMIN FINDER | 18 path admin |
 | 8 | 📥 DOWNLOAD TOOLS | 80+ tools, 10 kategori |
 | 9 | 🏪 DIZX ARSENAL | Cek status tools |
 | 10 | 📦 INSTALL ALL | Install semua tools (~5GB) |
 | 11 | ⚡ QUICK INSTALL | 13 essential tools |
 | 12 | ▶️ RUN TOOL | Jalankan tools terinstall |
-| 13 | 📻 PUBLIC RADIO | 12 negara, 60+ station |
+| 13 | 📻 PUBLIC RADIO | 12 negara, 30+ station |
 | 14 | 🛒 DARK STORE | APK mod 6 sumber |
 | 15 | 🔐 HASH CRACKER | Crack MD5/SHA1/SHA256 |
 
@@ -117,7 +117,7 @@ Anonymous-tools/
 │   ├── DIZX AI AGENT           # AI tanpa batasan
 │   ├── OSINT GOOGLE            # Search aggregator
 │   ├── PHONE TRACKER           # 50+ prefix Indonesia
-│   ├── OSINT NAME (2000+)      # 2000+ platform asli
+│   ├── OSINT NAME (2000+)      # 50+ platform
 │   ├── EMAIL BREACH            # Cek kebocoran data
 │   ├── DDoS ATTACK (300+)      # 12 kategori
 │   ├── ADMIN FINDER (200+)     # Path admin detection
@@ -126,7 +126,7 @@ Anonymous-tools/
 │   ├── INSTALL ALL             # Install semua (~5GB)
 │   ├── QUICK INSTALL           # 13 essential tools
 │   ├── RUN TOOL                # Jalankan tools
-│   ├── PUBLIC RADIO            # 12 negara, 60+ station
+│   ├── PUBLIC RADIO            # 12 negara, 30+ station
 │   ├── DARK STORE              # APK mod 6 sumber
 │   └── HASH CRACKER            # MD5/SHA1/SHA256
 │
