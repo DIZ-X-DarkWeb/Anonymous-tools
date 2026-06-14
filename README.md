@@ -52,10 +52,10 @@
 
 | OS | Command |
 |:---:|---------|
-| 🤖 **Termux** | `pkg update && pkg upgrade -y && pkg install python git -y && git clone https://github.com/DIZ-X-DarkWeb/Anonymous-tools.git && cd Anonymous-tools && bash start.sh` |
-| 🐧 **Kali Linux** | `sudo apt update && sudo apt upgrade -y && sudo apt install python3 git -y && git clone https://github.com/DIZ-X-DarkWeb/Anonymous-tools.git && cd Anonymous-tools && bash start.sh` |
-| 🐧 **Ubuntu/Debian** | `sudo apt update && sudo apt upgrade -y && sudo apt install python3 git -y && git clone https://github.com/DIZ-X-DarkWeb/Anonymous-tools.git && cd Anonymous-tools && bash start.sh` |
-| 🐧 **Parrot OS** | `sudo apt update && sudo apt upgrade -y && sudo apt install python3 git -y && git clone https://github.com/DIZ-X-DarkWeb/Anonymous-tools.git && cd Anonymous-tools && bash start.sh` |
+| 🤖 **Termux** | `pkg update && pkg upgrade -y && pkg install python git -y && git clone https://github.com/DIZ-X-DarkWeb/Anonymous-tools.git && cd Anonymous-tools && bash start.sh && source ~/.bashrc` |
+| 🐧 **Kali Linux** | `sudo apt update && sudo apt upgrade -y && sudo apt install python3 git -y && git clone https://github.com/DIZ-X-DarkWeb/Anonymous-tools.git && cd Anonymous-tools && bash start.sh && source ~/.bashrc` |
+| 🐧 **Ubuntu/Debian** | `sudo apt update && sudo apt upgrade -y && sudo apt install python3 git -y && git clone https://github.com/DIZ-X-DarkWeb/Anonymous-tools.git && cd Anonymous-tools && bash start.sh && source ~/.bashrc` |
+| 🐧 **Parrot OS** | `sudo apt update && sudo apt upgrade -y && sudo apt install python3 git -y && git clone https://github.com/DIZ-X-DarkWeb/Anonymous-tools.git && cd Anonymous-tools && bash start.sh && source ~/.bashrc` |
 | 🪟 **Windows** | Download Python dari [python.org](https://python.org), centang "Add to PATH"<br>`git clone https://github.com/DIZ-X-DarkWeb/Anonymous-tools.git`<br>`cd Anonymous-tools`<br>`python anon_tools.py` |
 | 🍎 **macOS** | `brew install python3 git && git clone https://github.com/DIZ-X-DarkWeb/Anonymous-tools.git && cd Anonymous-tools && python3 anon_tools.py` |
 
