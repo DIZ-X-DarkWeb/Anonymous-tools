@@ -557,8 +557,8 @@ def main_menu():
         banner("MAIN MENU")
         menu=[
             ("1","DIZX AI AGENT","AI"),("2","OSINT GOOGLE","Search"),("3","PHONE TRACKER","Lacak"),
-            ("4","OSINT NAME (50+)","Platform scan"),("5","EMAIL BREACH","HIBP"),
-            ("6","DDoS ATTACK (300+)","12 kategori"),("7","ADMIN FINDER","Cari panel admin"),
+            ("4","OSINT NAME (400+)","Platform scan"),("5","EMAIL BREACH","HIBP"),
+            ("6","DDoS ATTACK","12 kategori"),("7","ADMIN FINDER","Cari panel admin"),
             ("8","DOWNLOAD TOOLS","Pilih install"),("9","DIZX AI ARSENAL","80+ tools"),
             ("10","INSTALL ALL","~5GB"),("11","QUICK INSTALL","Essential"),
             ("12","RUN TOOL","Launch"),("13","PUBLIC RADIO","Worldwide"),
