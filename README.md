@@ -74,23 +74,25 @@
 
 ## ⚔️ DAFTAR FITUR (15 FITUR)
 
-| # | FITUR | DESKRIPSI |
-|:---:|-------|-----------|
-| 1 | 🧠 DIZX AI AGENT | AI tanpa batasan, filter, moral |
-| 2 | 🔍 OSINT GOOGLE | Search aggregator duckduckgo + google |
-| 3 | 📱 PHONE TRACKER | 50+ prefix indonesia + IP tracking |
-| 4 | 👤 OSINT NAME | 50+ platform |
-| 5 | 📧 EMAIL BREACH | Cek kebocoran data via HIBP |
-| 6 | 💣 DDoS ATTACK | 12 kategori |
-| 7 | 🔑 ADMIN FINDER | 18 path admin |
-| 8 | 📥 DOWNLOAD TOOLS | 80+ tools, 10 kategori |
-| 9 | 🏪 DIZX ARSENAL | Cek status tools |
-| 10 | 📦 INSTALL ALL | Install semua tools (~5GB) |
-| 11 | ⚡ QUICK INSTALL | 13 essential tools |
-| 12 | ▶️ RUN TOOL | Jalankan tools terinstall |
-| 13 | 📻 PUBLIC RADIO | 12 negara, 30+ station |
-| 14 | 🛒 DARK STORE | APK mod 6 sumber |
-| 15 | 🔐 HASH CRACKER | Crack MD5/SHA1/SHA256 |
+| # | FITUR | DESKRIPSI | STATUS | CATATAN |
+|:---:|-------|-----------|:---:|---------|
+| 1 | DIZX AI AGENT | AI tanpa batasan | WORK | Butuh API Key OpenRouter. Ganti `K="API_AI_LO"` di `anon_tools.py` baris 10 |
+| 2 | OSINT GOOGLE | Search aggregator | WORK | Buka hasil di browser |
+| 3 | PHONE TRACKER | 50+ prefix Indonesia | WORK | IP & koordinat dari IP publik user, **bukan** lokasi asli pemilik nomor |
+| 4 | OSINT NAME | 50+ platform | WORK | Cek username di berbagai platform |
+| 5 | EMAIL BREACH | Cek kebocoran via HIBP | WORK | Butuh koneksi internet |
+| 6 | DDoS ATTACK | 12 kategori | WORK | Simulasi, bukan serangan asli |
+| 7 | ADMIN FINDER | 18 path admin | WORK | Scan path admin umum |
+| 8 | DOWNLOAD TOOLS | 80+ tools | WORK | Download & install tools eksternal |
+| 9 | DIZX ARSENAL | Cek status tools | WORK | Cek tools sudah terinstall atau belum |
+| 10 | INSTALL ALL | Install semua tools (~5GB) | WORK | Butuh ruang penyimpanan cukup |
+| 11 | QUICK INSTALL | 13 essential tools | WORK | Install tools penting saja |
+| 12 | RUN TOOL | Jalankan tools terinstall | WORK | Tools harus sudah diinstall |
+| 13 | PUBLIC RADIO | 12 negara, 30+ station | WORK | Butuh `mpv` (pkg install mpv) |
+| 14 | DARK STORE | APK mod 6 sumber | WORK | Buka link di browser |
+| 15 | HASH CRACKER | MD5/SHA1/SHA256 | WORK | Wordlist default 20 password |
+
+> **Catatan Penting:** Fitur 1 (AI) butuh API Key OpenRouter. Dapatkan di [openrouter.ai](https://openrouter.ai). Ganti variabel `K` di `anon_tools.py` baris 10 dengan API Key Anda.
 
 ---
 
